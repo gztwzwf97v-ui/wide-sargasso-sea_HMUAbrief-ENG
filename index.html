@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wide Sargasso Sea, A Document for Evi Zafiropoulou</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@300;400;500&display=swap');
+:root{--ink:#0A0805;--page:#E8DCC2;--madder:#8B2418;--ochre:#B8853A;--balm:#D4A574;--ash:#8C8378;--sage:#6B7458;--bone:#EDE2CC;--linen:#D4C5A4;--rust:#6E2818;--gilt:#B89540;--indigo:#2A3552;--moss:#5C6645;--cream:#F0E5CD;--ghost:#C0B499;--skin:#C29670;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background-color:var(--ink);color:var(--page);font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;line-height:1.8;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;mix-blend-mode:overlay;}
+.thread-mark{position:fixed;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--madder) 22%,var(--ochre) 50%,var(--balm) 78%,transparent);z-index:100;opacity:0.6;}
+.page{max-width:840px;margin:0 auto;padding:90px 44px 140px;}
+.masthead{border-top:1px solid var(--madder);padding-top:52px;margin-bottom:72px;animation:rise 1.2s ease both;}
+.date-line{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;color:var(--ash);margin-bottom:28px;text-transform:uppercase;}
+.stamp{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--madder);margin-bottom:32px;display:flex;gap:24px;flex-wrap:wrap;}
+.doc-title{font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:400;line-height:1.05;letter-spacing:-0.01em;color:var(--cream);}
+.doc-title em{font-style:italic;color:var(--linen);}
+.doc-meta{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ash);margin-top:26px;line-height:1.85;}
+.rule-short{width:44px;height:1px;background:var(--ochre);margin:36px 0;}
+.intro{margin-bottom:56px;animation:rise 1.1s 0.15s ease both;}
+.to-line{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--madder);margin-bottom:22px;}
+.intro p{font-size:1.2rem;line-height:1.94;color:var(--ghost);max-width:680px;}
+.intro p+p{margin-top:1.15em;}
+.intro strong{font-weight:600;color:var(--cream);font-style:italic;}
+.intro em{font-style:italic;color:var(--linen);}
+.opening-principle{margin:36px 0 0;padding:22px 28px;border-left:2px solid var(--ochre);background:rgba(184,133,58,0.05);}
+.opening-principle .label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:10px;}
+.opening-principle p{font-size:1.05rem;line-height:1.84;color:var(--cream);font-style:italic;}
+.opening-principle p strong{font-style:normal;color:var(--cream);}
+.greek-note{margin:36px 0 56px;padding:22px 28px;border-left:2px solid var(--moss);background:rgba(92,102,69,0.06);animation:rise 1.1s 0.18s ease both;}
+.greek-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--moss);margin-bottom:12px;}
+.greek-note p{font-size:1rem;line-height:1.84;color:var(--ghost);font-style:italic;}
+.bradford-note{margin:0 0 56px;padding:24px 30px;border:1px solid rgba(45,56,80,0.4);border-left:2px solid var(--indigo);background:rgba(45,56,80,0.06);animation:rise 1.1s 0.2s ease both;}
+.bradford-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);margin-bottom:14px;}
+.bradford-note p{font-size:1.04rem;line-height:1.86;color:var(--ghost);}
+.bradford-note p+p{margin-top:0.9em;}
+.bradford-note strong{color:var(--cream);font-weight:600;}
+.bradford-note em{color:var(--linen);font-style:italic;}
+.premise{border-left:3px solid var(--madder);border-top:1px solid rgba(139,36,24,0.3);border-bottom:1px solid rgba(139,36,24,0.3);padding:34px 38px;margin:0 0 56px;background:rgba(139,36,24,0.06);animation:rise 1.1s 0.25s ease both;}
+.premise .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--madder);margin-bottom:18px;}
+.premise p{font-size:1.14rem;line-height:1.92;color:var(--cream);font-style:italic;max-width:660px;}
+.premise p+p{margin-top:1em;}
+.premise strong{font-weight:600;font-style:normal;color:var(--cream);}
+.windward-orient{margin-bottom:72px;padding:28px 32px;border:1px solid rgba(184,149,64,0.3);border-left:2px solid var(--gilt);background:rgba(184,149,64,0.03);animation:rise 1.1s 0.27s ease both;}
+.windward-orient .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gilt);margin-bottom:14px;}
+.windward-orient p{font-size:1.05rem;line-height:1.88;color:var(--ghost);}
+.windward-orient p+p{margin-top:0.9em;}
+.windward-orient strong{color:var(--cream);font-weight:600;}
+.foundations{margin-bottom:80px;animation:rise 1.1s 0.3s ease both;}
+.foundations h3{font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--madder);margin-bottom:22px;}
+.foundations p{font-size:1.12rem;line-height:1.94;color:var(--ghost);max-width:680px;}
+.foundations p+p{margin-top:1.05em;}
+.foundations strong{color:var(--cream);font-weight:600;}
+.foundations em{font-style:italic;color:var(--linen);}
+.foundations-note{margin-top:28px;padding:18px 24px;border-left:2px solid var(--moss);background:rgba(92,102,69,0.07);}
+.foundations-note p{font-size:1.02rem;color:var(--ghost);font-style:italic;line-height:1.82;}
+.disposition{margin-top:36px;padding:24px 28px;border:1px dashed rgba(184,133,58,0.4);background:rgba(184,133,58,0.04);}
+.disposition .box-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px;}
+.disposition p{font-size:1.06rem;color:var(--ghost);line-height:1.84;}
+.disposition p+p{margin-top:0.9em;}
+.disposition strong{color:var(--cream);font-weight:600;}
+.disposition em{color:var(--linen);font-style:italic;}
+.divider{margin:56px 0;display:flex;align-items:center;gap:18px;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(143,132,116,0.18);}
+.divider-mark{font-family:'JetBrains Mono',monospace;font-size:0.54rem;letter-spacing:0.22em;color:var(--ash);text-transform:uppercase;white-space:nowrap;}
+.section{margin-bottom:80px;animation:rise 1s ease both;}
+.section-header{margin-bottom:28px;}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--madder);letter-spacing:0.18em;display:block;margin-bottom:4px;}
+.section-title{font-size:1.95rem;font-weight:500;color:var(--cream);line-height:1.15;}
+.section-title em{font-style:italic;color:var(--linen);font-weight:400;}
+.section-sub{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;color:var(--ash);text-transform:uppercase;margin-top:8px;display:block;}
+.section-body{font-size:1.12rem;line-height:1.94;color:var(--ghost);max-width:680px;}
+.section-body p+p{margin-top:1.05em;}
+.section-body strong{font-weight:600;color:var(--cream);}
+.section-body em{font-style:italic;}
+.section-body a{color:var(--gilt);text-decoration:none;border-bottom:1px solid rgba(184,149,64,0.3);transition:border-color 0.2s ease;}
+.section-body a:hover{border-color:var(--gilt);}
+.threads{margin-top:22px;list-style:none;padding-left:0;}
+.threads li{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid rgba(143,132,116,0.12);font-size:1.06rem;color:var(--ghost);line-height:1.78;}
+.threads li::before{content:'/';color:var(--madder);flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:0.75rem;margin-top:4px;opacity:0.85;}
+.threads li strong{color:var(--cream);font-weight:600;}
+.threads li em{color:var(--linen);}
+.threads li a{color:var(--gilt);text-decoration:none;border-bottom:1px solid rgba(184,149,64,0.3);}
+.threads li a:hover{border-color:var(--gilt);}
+.score{margin-top:22px;}
+.score-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid rgba(143,132,116,0.12);align-items:baseline;}
+.score-row .scene{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--madder);text-transform:uppercase;}
+.score-row .beat{font-size:1.04rem;line-height:1.76;color:var(--ghost);}
+.score-row .beat strong{color:var(--cream);font-weight:600;}
+.score-row .beat em{color:var(--linen);}
+@media (max-width:600px){.score-row{grid-template-columns:1fr;gap:6px;}}
+.script-note{margin-top:18px;padding:14px 20px;border-left:2px solid rgba(139,36,24,0.45);background:rgba(139,36,24,0.05);}
+.script-note p{font-family:'JetBrains Mono',monospace;font-size:0.66rem;line-height:1.7;color:var(--ash);letter-spacing:0.04em;}
+.script-note p strong{color:var(--madder);font-weight:500;}
+.script-note p+p{margin-top:0.7em;}
+.zomb-note{margin-top:24px;padding:20px 26px;border:1px solid rgba(45,56,80,0.4);border-left:2px solid var(--indigo);background:rgba(45,56,80,0.05);}
+.zomb-note .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--indigo);margin-bottom:12px;}
+.zomb-note p{font-size:1rem;line-height:1.82;color:var(--ghost);font-style:italic;}
+.zomb-note strong{color:var(--cream);font-style:normal;}
+.provocation-box{margin-top:22px;padding:24px 28px;border:1px dashed rgba(184,149,64,0.4);background:rgba(184,149,64,0.035);}
+.provocation-box .box-label{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gilt);margin-bottom:14px;}
+.provocation-box p{font-size:1.02rem;color:var(--ghost);line-height:1.84;font-style:italic;}
+.provocation-box p+p{margin-top:0.9em;}
+.provocation-box strong{color:var(--cream);font-style:normal;}
+.registers-mini{margin-top:14px;padding-top:14px;border-top:1px dotted rgba(184,149,64,0.3);}
+.registers-mini p{font-size:0.95rem;font-style:normal;color:var(--linen);line-height:1.74;}
+.registers-mini p strong{font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ochre);font-weight:500;font-style:normal;display:inline-block;min-width:100px;margin-right:6px;}
+.section-christophine{border:1px solid rgba(184,149,64,0.35);border-left:3px solid var(--gilt);padding:36px 38px;margin-bottom:72px;background:rgba(184,149,64,0.04);}
+.section-christophine .section-number{color:var(--gilt);}
+.section-atlantians{border:1px solid rgba(45,56,80,0.45);border-left:3px solid var(--indigo);padding:36px 38px;margin-bottom:72px;background:rgba(45,56,80,0.06);}
+.section-atlantians .section-number{color:var(--indigo);}
+.section-fire{border:1px solid rgba(110,40,24,0.4);border-left:3px solid var(--rust);padding:36px 38px;margin-bottom:72px;background:rgba(110,40,24,0.05);}
+.section-fire .section-number{color:var(--rust);}
+.section-careful{border:1px solid rgba(143,132,116,0.3);border-left:3px solid var(--ash);padding:36px 38px;margin-bottom:72px;background:rgba(143,132,116,0.04);}
+.section-careful .section-number{color:var(--ash);}
+.system-block{margin-top:22px;padding:22px 26px;border-left:2px solid var(--sage);background:rgba(107,116,88,0.05);}
+.system-block .system-label{font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;display:block;}
+.system-block p{font-size:1.02rem;color:var(--ghost);line-height:1.82;}
+.system-block p+p{margin-top:0.7em;}
+.system-block strong{color:var(--cream);}
+.system-block em{color:var(--linen);font-style:italic;}
+.companion-grid{margin-top:24px;}
+.companion-row{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid rgba(143,132,116,0.14);align-items:baseline;}
+.companion-row .who{font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.16em;color:var(--madder);text-transform:uppercase;}
+.companion-row .what{font-size:1.02rem;color:var(--ghost);line-height:1.74;}
+.companion-row .what a{color:var(--gilt);text-decoration:none;border-bottom:1px solid rgba(184,149,64,0.3);}
+@media (max-width:600px){.companion-row{grid-template-columns:1fr;gap:4px;}}
+.heading-mini{font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--madder);margin-top:48px;margin-bottom:18px;}
+.closing{margin-top:88px;padding-top:44px;border-top:1px solid rgba(139,36,24,0.35);}
+.closing p{font-size:1.16rem;font-style:italic;color:var(--ghost);line-height:1.96;max-width:660px;}
+.closing p+p{margin-top:1.2em;}
+.closing strong{color:var(--cream);font-style:normal;font-weight:600;}
+.sign{margin-top:52px;}
+.sign .name{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--cream);font-weight:500;}
+.sign .date{font-family:'JetBrains Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;color:var(--ash);margin-top:6px;}
+@keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media (max-width:600px){.page{padding:48px 22px 100px;}.doc-title{font-size:2.3rem;}.section-christophine,.section-atlantians,.section-fire,.section-careful{padding:24px 22px;}}
+</style>
+</head>
+<body>
+<div class="thread-mark"></div>
+<div class="page">
+
+<header class="masthead">
+<p class="date-line">Monday 18th May 2026</p>
+<div class="stamp"><span>An Orientation</span><span>BEDROCK</span><span>Confidential</span><span>Prep / Draft 3 / 2026</span></div>
+<h1 class="doc-title"><em>Wide Sargasso Sea</em></h1>
+<p class="doc-meta">Feature Film &nbsp;/&nbsp; In Prep<br>Written and Directed by Jenn Nkiru<br>An Orientation Document for Evi Zafiropoulou, Hair and Make-up Designer</p>
+<div class="rule-short"></div>
+</header>
+
+<div class="intro">
+<p class="to-line">For: Evi</p>
+<p>Evi. Welcome in. This document is a jumping-off point, not a brief. It is the beginning of a conversation, not the framing of an instruction. I am laying out the architecture of how I am thinking about the film at this moment so that when we sit down together in prep, we are starting from a shared place rather than building one from scratch.</p>
+<p>It is intentionally breadthful. I think of this document as the <strong>BEDROCK</strong> of the world view of the film, the place I would like all of us to be able to return to as a touchstone, the working source from which everything else extends. From my side, this is the bedrock from which I am thinking. From your side, I would like you to consider it the start of your own bedrock for the project, beyond the research you are already doing. Anything we discuss in person is essentially an extension of what already lives on these pages. <strong>Please feel free to share this with your department at large, and with the hair lead once we have them confirmed and on board.</strong> The wider the team that has read it, the more aligned the world we build.</p>
+<p>Think of this as <em>my early thinking laid out openly</em>, with reading and reference attached.</p>
+<p>Two things to say up front, because both should colour everything that follows. The first is that the film holds <strong>two perspectives, Rochester's and Antoinette's</strong>. The world looks different from each. Rochester's Caribbean is dense, hostile, sweating, watched. Antoinette's Caribbean is in harmony with her, warm, fertile, mirroring. Same locations, same bodies sometimes, but a different felt life inside them. The audience should be able to read which world we are inside at any given moment. Hold this in your hair and make-up choices throughout.</p>
+<p>The second is that <strong>nothing in this film should ever feel completely fully resolved, realised, or actualised</strong>. We are dealing in systems and people and places that are not ever any of those things in absolute. There is always something unfinished, something turning, something being made or unmade. Carry that into the body. A hairline that has not quite settled. A flush that has not quite cooled. A mark that is half-healed, half-fresh. The world of this film resists completion, and the body should resist it too.</p>
+<p>One last thing before we move into the framework. The cinematographer on this film is <strong>Bradford Young</strong>, an artist I have worked with for some time now and an exceptional eye on light, frame, texture, and tone. You and Bradford have not yet worked together, and I have not formally announced his attachment to the wider team, so please hold this as an internal note for the moment. He will be a close collaborator on HMUA's visual life, particularly on how skin, hair, sweat, blood, paint, and the painted Atlantian bodies register on his lens.</p>
+<div class="opening-principle">
+<p class="label">An Opening Principle</p>
+<p><strong>The body should always reveal what the dialogue cannot.</strong> Hair and make-up in this film is not finish. It is evidence. Of climate, of touch, of spirit, of possession, of residue, of knowledge, and of refusal. Naturalistic always. Beauty is in the subtlety. We are world-building hair and skin, not editorial-styling them.</p>
+</div>
+</div>
+
+<div class="bradford-note">
+<p class="box-label">A Note Up Front / The Litmus Test</p>
+<p><strong>Nothing is real or final until we have tested it through Bradford's lens.</strong> Skin will not read the same in your fitting room as it does on his image. The white Antoinette wears under his Caribbean sun is not the white she wears under his crimson firelight. The blue-black on the Atlantian bodies is not the colour you mix in the trailer; it is the colour Bradford finds in the grade. Christophine's luminosity, Rochester's flush, the dirt-mask in Scene 78, the second eyelids, the redness of a wrist after rope, the cold blue of attic lips, every one of these has to land on his image, not just on a stand.</p>
+<p>Plan to <em>test on camera early</em>. Multiple skin tones, multiple wetnesses, multiple light worlds. Build the calendar of camera tests with Bradford and me as a non-negotiable part of prep. <strong>Make-up tested in isolation will mislead us.</strong> Make-up tested under the film's actual light grammars will tell us the truth. This note governs almost every section that follows.</p>
+</div>
+
+<div class="greek-note">
+<p class="box-label">Ελληνική έκδοση</p>
+<p>Έβι, η ελληνική έκδοση αυτού του εγγράφου είναι υπό προετοιμασία και θα σου σταλεί σύντομα, ώστε να μπορείς να διαβάζεις και τα δύο κείμενα παράλληλα. Στο μεταξύ, σε παρακαλώ ξεκίνα με αυτή την αγγλική έκδοση. Η ελληνική έκδοση θα είναι πιστή στο περιεχόμενο, αλλά στυλιστικά προσαρμοσμένη ώστε να ακούγεται φυσική στη μητρική σου γλώσσα.</p>
+</div>
+
+<div class="premise">
+<p class="box-label">The Film / Central Premise</p>
+<p>This is an adaptation of <strong>Jean Rhys's Wide Sargasso Sea</strong>, published in 1966, now sixty years behind us. Rhys wrote it as a counter to Charlotte Brontë's Jane Eyre, restoring interiority and authorship to the woman Brontë had locked in the attic: Antoinette Cosway, Creole, Jamaican, dispossessed, called mad. Rhys wrote her back into existence.</p>
+<p>Wide Sargasso Sea has been adapted before, but never through a contemporary cinematic language that fully realises the scale, psychology, and political resonance of Rhys's intervention. Those earlier versions approached the text as literary translation. This film approaches it as <em>reactivation</em>. My adaptation does not treat the novel as heritage but as <strong>living architecture</strong>, a story that speaks directly to how power, identity, and inheritance continue to shape the present.</p>
+<p>This is a period piece, but one that takes a new approach to period itself. The sound is achronological, gestures across time. The dialogue feels like now. Visual references collapse decades and centuries deliberately. The film is rooted in the years following the Emancipation Act of 1833 and completely alive to the present moment. Past, present, and future are not sequential here. They speak to each other constantly. This is not a repetition of what has been done before. It is a redefinition.</p>
+<p>Antoinette's world is primarily Jamaican. Christophine and Annette carry Francophone Creole culture into the heart of the story. The honeymoon at Granbois extends the geography into the Windward Islands. England is the cold white endpoint until it is not. The film opens on fire and ends on a laugh above a clear sea. <strong>Antoinette is flying home.</strong> What happens between those two moments is this film's argument about knowledge, power, perception, and what it means to be free.</p>
+</div>
+
+<div class="windward-orient">
+<p class="box-label">A Quick Orientation / Jamaica and the Windward Islands</p>
+<p>The film moves between <strong>Jamaica</strong> (where Antoinette is from, where her childhood unfolds at <strong>Coulibri</strong>) and the <strong>Windward Islands</strong> (where the honeymoon at <strong>Granbois</strong> takes place). Worth knowing the difference, because they have different bodily lives that hair and make-up needs to honour.</p>
+<p>Jamaica is a primarily Anglophone Creole world. The Windward Islands are a mixed Anglophone and Francophone Creole region. Martinique is fully French. Dominica and Saint Lucia are formally English-speaking but carry deep French Creole heritage in language, food, music, and material culture. Saint Vincent, the Grenadines, and Grenada are English-speaking with French and indigenous Carib traces. The "Massacre" village in Scene 5 is in Dominica historically. <strong>Christophine speaks French Creole and brings that linguistic and cultural inheritance into Granbois with her</strong>, layered, holding both colonial inheritances and refusing to be reduced to either. Annette carries her own Francophone Creole inheritance through Antoinette's childhood at Coulibri, but does not travel into the Granbois honeymoon section.</p>
+<p>For your design: skin and hair in Jamaica is not skin and hair in the Windward Islands. The Caribbean is not a single place. Where the script is set in Jamaica, hold the line on Jamaican Creole grooming, hair traditions, and presentation. Where it is set in the Windward Islands, allow the French Creole layer to breathe through Christophine's <em>tête calendée</em> headwrap, Annette's Martinican inheritance, and the wider bodily vocabulary of the Francophone Caribbean. The wider household and village population span both inheritances and others, including Carib, Arawak, and Taíno residues that the film holds in mind for several characters. <strong>Read this geography as a body map. Skin and hair in this film travel. So do their meanings.</strong></p>
+</div>
+
+<div class="foundations">
+<h3>Foundations / The Three Registers and the Four Elements</h3>
+<p>Three registers run through every scene of this film, and they need to run through every choice you make on a body. They are the foundational knowledge base for our work together, and I want them to be active in every HMUA decision rather than only stated up front.</p>
+<p><strong>Material.</strong> The body itself. Skin, hair, sweat, blood, oil, dirt, salt, paint, powder. The fact of what the camera sees on the surface.</p>
+<p><strong>Spiritual.</strong> What the body holds beyond its surface. Protection, exposure, dignity, refusal, ritual, possession, intimacy, grief. The work the surface is doing on the wearer's interior life and on the felt atmosphere of the room.</p>
+<p><strong>Ancestral.</strong> The lineage the body carries. The hands that braided this hair before. The grandmothers whose skin held heat the same way. The trade routes that brought the gold to the lobes, the indigo to the cloth, the roucou to the body. <em>Ancestral here means past and future at once.</em> The drum is the first telephone. A scar can speak forward as well as back. The marks we make on our actors carry their inheritances and reach toward what is coming.</p>
+<p>The discipline I would like you to hold across every decision is to test it against all three. <strong>What does this do materially. What does it hold spiritually. What does it carry ancestrally.</strong> If a mark is not doing work on at least one register, consider replacing it with something that is. If a mark is doing work on all three, you have found the centre of the body.</p>
+<p>Alongside the three registers, the <strong>four elements</strong> operate throughout the film. <em>Water, fire, air, earth.</em> Operative, not symbolic. Water is the pool, the rain, the sweat, the linen-washing river, the underwater scream, the tears, the Sargasso itself. Fire is the burn at Coulibri and at Thornfield, the candle, the flamboyant tree at the end, the moths falling into flame, the sun that does not relent. Air is the wind in Annette's hair on the veranda, the breath through Rochester's corseted ribs, the underwater held-breath, the wind that lifts Antoinette's hair at the battlements. Earth is the mud at the foot, the dirt under the nail, the dirt-mask on Rochester's face, the path through the village, the ground that takes the body in. HMUA is in conversation with all four. <strong>The body is the most direct site where the elements leave their evidence.</strong></p>
+<div class="foundations-note">
+<p>If it helps you to think of these registers musically: material is the drum, spiritual is the bass, ancestral is the voice across generations. The film is the score they make together. The body sits inside that score, never above it and never under it.</p>
+</div>
+<div class="disposition">
+<p class="box-label">The Disposition / World-Building, Not Editorial</p>
+<p>One last orienting note before the sections begin. <strong>Hair and make-up in this film are not "beauty" in the editorial sense.</strong> They are skin, hair, heat, sweat, damage, restraint, possession, climate, voice, and interior state made visible on the body. We are world-building a body, not styling one for a photograph.</p>
+<p>The frame I would like you to hold is <strong>naturalistic always, unless otherwise detailed</strong>. The audience should feel the weather, the labour, the night without sleep, the day without water, the mother's hand that just brushed this hair, the lover's mouth that just kissed this neck. <em>Beauty is in the subtlety.</em> The most powerful HMUA note is often the one no one consciously registers and everyone unconsciously believes.</p>
+<p>Where we depart from naturalism, we depart with intent. <strong>The Atlantians.</strong> The dirt-mask. The crimson light cloaking Antoinette. The dual eyelids. The post-potion white powder. The chromatic transformations of the fire sequence. These are <em>charged exits from naturalism</em>, designed and earned. Everywhere else, the body is in service to truth, not to a look.</p>
+</div>
+</div>
+
+<div class="divider"><span class="divider-mark">Sections 01 — 21</span></div>
+
+<!-- SECTION 01 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">01</span>
+<h2 class="section-title">The Achronological Approach / <em>Period Honoured, Period Pushed</em></h2>
+<span class="section-sub">Time grounded, time unbound. On skin and hair too.</span>
+</div>
+<div class="section-body">
+<p>The film is grounded in its period. The Caribbean section sits in the years just after the Emancipation Act of 1833, the English section a few years later in the 1840s. The grooming languages, the hair traditions, the cosmetic vocabulary, the bodily rituals all come from that historical band. We are not making a fantasia about the past. We are making a film inside it.</p>
+<p>And. The film also takes an <strong>achronological approach</strong>, by which I mean it is willing to pull from sources and ideas that sit outside the period when doing so deepens the argument. A hair tradition that resonates from another century. A grooming reference from another diasporic context. A way of holding the face that came later, or earlier, or from somewhere else entirely. Anachronism here is not carelessness, it is editing. <em>Not used to break the period, but to load it.</em></p>
+<p>This applies particularly to <strong>hair</strong>. The braiding traditions of the Caribbean did not begin in 1833, and they did not end in 1840. They run backward across the Middle Passage to West Africa and forward through the diaspora into our present. <strong>Hilda and Amelie's hair, for example, can sit in a timeless braiding tradition</strong> that is period-honest because it is older than the period and it is still alive now. We honour their hair by refusing to confine it to the costume-y "1830s" image of what Caribbean Black women's hair was. <em>Their braiding is older than the empire and it will outlive it.</em></p>
+<p>What is <strong>removed</strong> is as important as what is kept. I do not want a heavy-handed Caribbean look. I want the period grounded with discipline, one fewer accent than expected, the cleaner skin, the absence of something the audience reaches for and does not find. Removal as argument. The Caribbean section should feel <strong>spare, considered, breathing</strong>. The English section, when we get there, should feel the opposite: starched, plaited, contained, the body of a country that is still wearing its repression.</p>
+<p>This is the HMUA axis of a wider design principle in the film: <strong>Caribbean minimalism / English maximalism</strong>, but expressed differently than in costume or design. Here it lives as <em>open vs closed</em>, <em>luminous vs greyed</em>, <em>flowing vs plaited</em>, <em>oiled vs dry</em>. Read alongside Nora's document and Ola's document on the same axis, where they are doing the parallel work with rooms and cloth. We are all making the same argument on different surfaces.</p>
+<div class="script-note"><p><strong>From the script:</strong> Period 1830s through 1840s. The Caribbean act runs from Rochester's arrival at Granbois (Scenes 4 to 87) through the return to England (Scenes 88 to 89). Thornfield begins Scene 90. The film closes with Antoinette flying home.</p></div>
+</div>
+</div>
+
+<!-- SECTION 02 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">02</span>
+<h2 class="section-title">The Somatic Argument / <em>Caribbean Body, English Body</em></h2>
+<span class="section-sub">Same anatomy. Different worlds. Different surfaces.</span>
+</div>
+<div class="section-body">
+<p>HMUA in this film is the most direct translator of the somatic argument. <strong>The Caribbean body and the English body are not the same body in their respective spaces, even though anatomically they are the same body.</strong> They breathe differently. They sweat differently. They flush differently. They are dressed differently and they wear what dresses them differently in turn. A body is composed by where it is. The skin on it composes how it can be there.</p>
+<p>Heat is an HMUA designer here. So is damp. So is salt, sun, mildew, mud, rain, sweat, intimacy, firelight, English cold. The skin is alive. It pinks at the cheek. It darkens at the hairline. It loses moisture at the lip. It crusts faintly with salt at the temple. It carries the day on it. A face that has lived a Caribbean afternoon is not the same face that began the afternoon, even though no make-up has been changed.</p>
+<p>The <strong>English body in a Caribbean environment</strong> is one of the central somatic experiments of the film. Rochester's whole HMUA arc is one long answer to the question of what the climate does to a body that arrived dressed for a different one. The flush. The sweat. The fever. The dirt. The unraveling at the extremities. <em>The Caribbean does not stay outside him. It gets in.</em></p>
+<p>The <strong>Caribbean body in an English environment</strong> is the inverse, and we see it across the final movement of the film. Antoinette in the Thornfield carriage, Antoinette in the attic. <strong>What does it mean for a body shaped by Caribbean light, Caribbean food, Caribbean touch, to be locked inside English wool and English wallpaper.</strong> The skin grays. The lips lose colour. The hair goes flat. The glow she has carried since childhood is leached out of her by a country that has no use for it.</p>
+<p>Some practical questions to hold as you work. <strong>Who sweats?</strong> <strong>Who is luminous?</strong> <strong>Who is greyed by their environment?</strong> <strong>Who is fed by it?</strong> Rochester sweats, and his sweat is betrayal. Antoinette's wetness is environmental attunement. Christophine, Baptiste, Hilda, and somewhat Amelie are <strong>luminous</strong>, skin that absorbs light, that does not collapse into sweat, because the heat belongs to their world. <em>The difference between sweat as betrayal and sweat as environment is one of the most important distinctions you and I will make together.</em></p>
+</div>
+</div>
+
+<!-- SECTION 03 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">03</span>
+<h2 class="section-title">Colour, Race, Visibility, Residue / <em>The Body's Surface as Argument</em></h2>
+<span class="section-sub">Saturation, absence, heat, and what is left behind on skin and hair</span>
+</div>
+<div class="section-body">
+<p>This section is pulled directly from the visual research brief Darol is leading on, where it is one of the central organising frames of the film's image. I am pushing it through an HMUA lens here so you can hold the same argument from your side. <strong>Colour, race, visibility, and residue all live first on the body.</strong> Before they are in the room, they are on the skin. Before they are in the frame, they are in the hair. Your decisions are the most direct site of this work and the most direct site of its potential failure if we are not careful.</p>
+<p><strong>Saturation.</strong> The film holds a chromatic spine that runs from blood and tablecloth red through the dirt-mask brown through the spectral white of the fire to the deep orange moon at the end. On the body, this means asking how skin reads <em>under</em> saturated light, not just under daylight. Antoinette's white nightgown takes red light and her skin takes red light with it. Rochester's face under candle, lamp, sun, fire, attic-shadow, thermal, five different faces. Saturation is not a grade question alone. It is a skin question first.</p>
+<p><strong>Absence.</strong> What is <em>not</em> on the body is as important as what is. The face that has lost colour. The hair that has lost shine. The lips that have lost moisture. The pinkness that has gone from a cheek that used to hold it. Antoinette's skin in the attic should feel like a body that has been <em>drained</em>, not a body that has been made up to look pale. There is a meaningful difference between absence and absence-styled-as-presence. We are after the first.</p>
+<p><strong>Heat.</strong> The temperature of the body in the frame. Thermal can be literal (the thermal-camera moment in Scene 37, the white silhouette of Rochester at Scene 103) and it can be felt. Christophine's skin holds heat without breaking. Rochester's skin breaks. Antoinette's skin moves through heat as a fluent native. <em>Heat as a register that the body either belongs to or does not.</em></p>
+<p><strong>Residue.</strong> What is left behind after the event has passed. Section 04 takes this further. The headline here is that the body is the place where the film's history continues to register: in the salt at the temple, the dirt under the nail, the redness at the back of the neck where the kerchief sat, the half-healed mark at the wrist where the rope was. The body remembers what the dialogue forgets.</p>
+
+<p style="margin-top:24px;">Now to the racial taxonomy thread, which is one of the heaviest weights you will be carrying. <strong>The film is using whiteness, Blackness, brownness, and every gradient between them as material.</strong> Cloth has its taxonomy of whites (the always-white principle on Antoinette, see Ola's document, Provocation One). The body has its taxonomy of skin tones, and that taxonomy is doing argument-work in every scene.</p>
+<p>Held in the room with us at all times: the script's most explicit chromatic moment, <strong>"White skin, Black mask"</strong> in Scene 78. Rochester digs in the forest, sweat rolling, dirt sticking to his face, until the dirt has made a mask. <em>Frantz Fanon's title is being inverted in the image.</em> The white man whose interiority has been colonised by the colonial project he came to enact is, briefly, wearing the visible sign of what he refuses to know about himself. The make-up here is the entire argument. We are not styling him. <strong>We are revealing what the country has done to him on his own face.</strong></p>
+<p>Held alongside that: <strong>Christophine's luminosity</strong>. The Black woman in the post-emancipation Caribbean whose skin holds light, whose presence cannot be taken from her by colonial sight. <em>Where Rochester's skin is racialised by what has been put on it, Christophine's skin is sovereign by what comes through it.</em> The two grammars are arguing across the entire film and you are holding both.</p>
+<p>Held alongside that: <strong>Antoinette's contested chromatic position</strong>. Creole, white-skinned by category, called names by the children of the ex-enslaved community at Coulibri who do not see her as theirs and do not see her as the colonisers either, perceived as broader-featured by Rochester in Scene 70 once his racism takes over his eye. <em>Around the time of emancipation in Jamaica in the 1830s, a highly complex and fragmented system of racial classification existed</em>, with many often overlapping categories used to differentiate people based on skin shade, African ancestry, and legal status. Antoinette sits inside that system without a stable position, claimed by no category fully, marked by all of them. The film moves her chromatic legibility around her depending on whose gaze is reading her. <em>Her skin does not change. The viewer's eye is forced to.</em> See Section 06 for the through line, including the Scene 70 perceptual shift.</p>
+<p>Held alongside that: <strong>the lighter-skinned Caribbean characters</strong>. Daniel is what is called in the West Indies <strong>red-skinned</strong>, fiery ginger hair, freckled, light-skinned, the heat-trapped body in his sealed room arguing visibly with the singlet against his pinking arms. His Sunday-best face and his at-home face are two different chromatic positions on the same skin. We will work this carefully.</p>
+<p>And held alongside all of that: the <strong>Atlantians</strong>, who are painted into a register that is not naturalistic at all and that is precisely arguing against the racial taxonomy by speaking from beneath it. The deep ocean made flesh. See Section 11.</p>
+<p>The headline of this section: <strong>your colour decisions on bodies in this film are heavy.</strong> They are not "skin tone matching." They are political, ancestral, perceptual, climatic, and theological in turn. Test them all on Bradford's lens. Walk them past me before locking. We are building a chromatic vocabulary of bodies in the way Ola is building a chromatic vocabulary of cloth. The two vocabularies should rhyme.</p>
+</div>
+</div>
+
+<!-- SECTION 04 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">04</span>
+<h2 class="section-title">What Remains and What Is Missing / <em>Skin as Archive, Body as Site of THE MISSING</em></h2>
+<span class="section-sub">Two halves of the same instinct. The body keeps the score.</span>
+</div>
+<div class="section-body">
+<p>This is one of the deepest design lines in the film for HMUA, and one of the most powerful disciplines I would like you to take into your work. The body is where the film leaves traces. Both <em>what stays</em> and <em>what has been removed</em>. Two grammars working at once on the same surface.</p>
+
+<p style="margin-top:24px;"><strong>Skin as archive, residue on the body.</strong> Darol's brief defines residue as what colour, memory, spirit, emotion, ancestors, and erased histories leave behind. Through HMUA, this becomes a long working list of marks the body carries after the event has passed. The body as the page on which the day continues to write.</p>
+<ul class="threads">
+<li><strong>Sweat after fear.</strong> Different from sweat after labour or sex. Cold at the back of the neck, beaded at the upper lip, finer in texture. Rochester after the visit to Daniel.</li>
+<li><strong>Salt after the sea or after tears.</strong> The dried trail at the temple, the white crust at the lash line, the slight pull on the skin where the salt has tightened. Christophine after the river ritual. Antoinette after weeping.</li>
+<li><strong>Powder after ritual.</strong> The white powder on the floor of the bedroom in Scene 64 carried up onto Rochester's bare feet, his palms, the inside of his wrists. The powder that whitens the cockroach. He steps in it. It comes with him.</li>
+<li><strong>Ash after fire.</strong> The Coulibri opening. Annette's hands after the fire. The fine grey film at the hairline of anyone who walked back through the smoke.</li>
+<li><strong>Redness after restraint.</strong> The marks the rope leaves on Antoinette's wrists in Scene 99 after she burns it through. The pinking at the back of Rochester's neck where the kerchief has been pulled too tight too long. The faint linear mark a corset's edge leaves on a torso for hours after it has been unlaced.</li>
+<li><strong>Mud under nails.</strong> Young Antoinette's after Scene 47. Rochester's after Scene 78. The mud is not always visible at first reading but the camera will find it.</li>
+<li><strong>Blood dried too long.</strong> The brown not the red. Antoinette's blood on her own face after Tia's stone in Scene 58. The bite-marks on Rochester's arm after Scene 70.</li>
+<li><strong>Hair carrying the shape of someone else's hand.</strong> Where Christophine has just brushed it, where Amelie has just pulled it, where the wind has lifted it, where a wet pillow has flattened one side of it. Hair holds touch.</li>
+<li><strong>Skin remembering heat hours after the sun has gone.</strong> The faint warm flush still visible on a face hours after sunset. Antoinette in the cool of evening still carrying the day.</li>
+<li><strong>The mark that has half-healed.</strong> The faint older line of self-harm on the wrist that is no longer fresh and not yet gone. The healed cut on Antoinette's palm from Scene 44 still faintly readable in close-up later in the film.</li>
+</ul>
+
+<p class="heading-mini" style="margin-top:48px;">The Body as Site of THE MISSING</p>
+<p>Now the inverse. Darol's brief names <strong>THE MISSING</strong> as Arthur Jafa's articulation of the unquantifiable colonial loss, partnered with my own concept of <strong>Cosmic Archaeology</strong>: the practice of working with that absence, excavating what has been erased, and finding it still active in residue. THE MISSING does not only live in sound, image, or archive. <em>It lives on the body too.</em> What has been drained from the body is sometimes more powerful than what has been added.</p>
+<ul class="threads">
+<li><strong>Sleep missing from the face.</strong> The dark beneath the eye, the slight tremor of the eyelid, the slowness of the gaze. Antoinette across the latter half of the Caribbean section. Rochester after Scene 64.</li>
+<li><strong>Warmth missing from Antoinette in England.</strong> Not styled-pale. <em>Drained</em>. The body of a woman whose climate has been removed from her.</li>
+<li><strong>Moisture missing from the lips in the attic.</strong> Cracked, paled, the slight flake at the corner. Lips blue with cold (Scene 93). The body's water has been taken.</li>
+<li><strong>Selfhood missing when Rochester calls her Bertha.</strong> The face that is no longer being addressed. The lights gone out behind the eyes for a moment. The way the hair sits when the woman wearing it has been renamed.</li>
+<li><strong>Colour missing from the face after trauma.</strong> Annette after Coulibri. Antoinette after Scene 64. Pierre throughout, but particularly his small frail body in any scene.</li>
+<li><strong>Voice missing from the mouth when speech is impossible.</strong> The mouth that opens slightly and closes. The dry throat. The way the lower jaw sets. Rochester at Daniel's. Antoinette in the attic with Richard Mason approaching.</li>
+<li><strong>Life-force missing from Annette after Coulibri.</strong> One of the most pictorial cases of THE MISSING in the film. A woman whose interior has been removed in the same fire that took her son and her house. The hair, the face, the eyes all carry the absence.</li>
+</ul>
+<p style="margin-top:24px;">These two grammars, what remains and what is missing, should travel together in your thinking. Sometimes the most powerful HMUA note is what has been quietly subtracted. Sometimes it is what has been quietly left behind. Either way, <strong>the body is keeping the score</strong>. Skin is archive. Skin is also subtraction. Both are intelligence.</p>
+</div>
+</div>
+
+<!-- SECTION 05 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">05</span>
+<h2 class="section-title">Encoding / <em>Six Material Provocations</em></h2>
+<span class="section-sub">Theoretical ideas turned into skin and hair. The method, then the examples.</span>
+</div>
+<div class="section-body">
+<p>One of the central principles of how this film is being made is the <strong>encoding of theoretical ideas into material decisions</strong>. We do not state our themes. We register them on bodies. The audience should feel the argument before they understand it. HMUA, sitting on the actor's actual skin, is the most direct site of this work.</p>
+<p>What follows are <strong>six worked provocations</strong>. Each is a starting point. They are here to show you how I am thinking about this practice, so you can extend it, push past it, and bring back your own. The method matters more than any single example.</p>
+
+<div class="provocation-box">
+<p class="box-label">Provocation One / The Racial Taxonomy of Skin and the Always-White Foil</p>
+<p>Antoinette wears white throughout the film. <em>Always.</em> The materials shift, the cuts shift, but the colour stays. Each white she wears sits at a different position on the racial taxonomy of whites Ola is tracking through cloth (see her Provocation One). <strong>Your task is to make her skin participate in that taxonomy.</strong> What is her skin doing against crisp imposed bridesmaid white versus sun-yellowed Caribbean white versus the Tia-stained borrowed white versus the spectral fire-cloaked white at the end. The same skin under five different whites is five different arguments about who she is allowed to be, who she is being made to be, and who she chooses to be. The white is the foil. <strong>Her skin is the argument.</strong></p>
+<div class="registers-mini">
+<p><strong>Material</strong> tone, undertone, finish, glow, the pinking or warming or pallor that the cloth's white pulls forward. <strong>Spiritual</strong> the way the body is held inside an imposed whiteness vs the way the body is held inside a chosen whiteness. <strong>Ancestral</strong> the long history of "white" as a category that bodies were conscripted to perform, and the future register of what it might mean for that category to dissolve into light at the end.</p>
+</div>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Provocation Two / Hair as Inheritance</p>
+<p><strong>Hair is the most direct ancestral material the body carries.</strong> Annette's hair flowing out behind her in the wind on the veranda in Scene 47 is the foreshadow of Antoinette's hair at the battlements in Scene 103. Annette's "two plaits, one longer than the other" in the confinement flashback (Scene 59) is rhymed by Antoinette's two plaits in the attic (Scene 94), one longer than the other. Daughter's hair is dressed by mother's gesture before mother's gesture has been remembered. <em>Hair holds the patriline and the matriline at once.</em> Christophine brushes Young Antoinette's hair in Scene 49 with brisk anger and political knowledge. Amelie pulls Antoinette's hair hard in Scene 28. Rochester pulls the white sheet over Antoinette's face in Scene 64. <strong>Hair is the surface where care, aggression, intimacy, possession, and inheritance most directly meet.</strong> Track the gestures hair carries, not only the shapes hair takes.</p>
+<div class="registers-mini">
+<p><strong>Material</strong> texture, length, weight, sheen, oil, water, the way hair takes wind. <strong>Spiritual</strong> hair as the part of the body that most visibly holds touch. <strong>Ancestral</strong> braiding traditions older than the empire, the brushing that mothers and grandmothers have done forever, and the future hair that will outlive this story.</p>
+</div>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Provocation Three / The Luminous and the Sweating</p>
+<p>Two skin grammars run through this film and they are arguing with each other. <strong>The Luminous</strong>: skin that absorbs light and gives it back. Christophine, Baptiste, Hilda, and somewhat Amelie. The heat belongs to their world. They may sweat, but they are not undone by sweat. Heat does not defeat them. Their bodies <em>belong</em> to the climate. <strong>The Sweating</strong>: skin betrayed by the climate it is in. Rochester throughout the Caribbean section. The English staff at Thornfield in proximity to filth in the attic. The body that the environment is working on against its will. <em>Sweat as belonging vs sweat as betrayal.</em> The same wet does not read the same. Build out the two grammars consciously. Light absorption is a make-up question. Glow is a make-up question. Where one ends and the other begins is one of the most precise calibrations you will make.</p>
+<div class="registers-mini">
+<p><strong>Material</strong> oil, hydration, finish, undertone, the play of highlight on different skin tones under different lights. <strong>Spiritual</strong> the body that belongs to where it is vs the body that does not. <strong>Ancestral</strong> the long inheritance of bodies that learned to live with sun, and the briefer history of bodies that arrived dressed for elsewhere.</p>
+</div>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Provocation Four / The Body Worn Into vs The Body Imposed Upon</p>
+<p>There is a profound difference between <strong>a body that has been worn into its skin</strong>, a body that has lived itself for years, that has learned its weather, that holds its grooming as second nature, and <strong>a body that has been imposed upon by an external arrangement</strong>, a body that is being held to a shape it has not chosen. Christophine's body is worn into. Rochester's body in his English layering at arrival is imposed upon. Antoinette's body in the bridesmaid's dress is imposed upon; her body in the headscarf she ties herself in Scene 82 is worn into. <em>Track which condition each character is in at each point.</em> The shift from one to the other is sometimes the entire arc.</p>
+<div class="registers-mini">
+<p><strong>Material</strong> the slight wear of self-knowledge, the polish of being held by external instruction. <strong>Spiritual</strong> the body's relationship to its own surface as either accord or imposition. <strong>Ancestral</strong> grooming traditions inherited and self-authored vs grooming traditions issued from outside.</p>
+</div>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Provocation Five / The Achronological Body — Period Beauty and Hair Pushed</p>
+<p>Period accuracy can be a trap. We are not making an 1830s/40s reenactment. <strong>We are making a film inside that period that knows everything that has happened since.</strong> The achronological logic that runs through cloth, sound, and dialogue runs through the body too. Use period grooming where it deepens the truth and depart from it where it would flatten the truth. <em>Hair is one of the clearest sites of this.</em> Hilda and Amelie's braiding traditions are older than 1840 and still alive in 2026. Honour them as continuous traditions, not as period costume. Christophine's <em>tête calendée</em> headwrap is centuries-old French Caribbean and has been continuously practiced. Annette and Antoinette's hair sits inside the European 1830s/40s vocabulary but should not feel embalmed by it. <strong>Period beauty pushed is period beauty made true.</strong> Use contemporary technique to land period truth. Remove rather than add. Lean on what is older than the period (the African and Caribbean braiding lineages, the Akan goldsmithing the earrings come from) and on what speaks now (the body of a 21st-century actress occupying an 1830s woman's interior).</p>
+<div class="registers-mini">
+<p><strong>Material</strong> period-aware cosmetics and grooming, achronological hair traditions, contemporary technique deployed sparingly. <strong>Spiritual</strong> the body that is in its time and out of it at once. <strong>Ancestral</strong> the deep traditions that precede the period and the contemporary intelligence that follows it.</p>
+</div>
+</div>
+
+<div class="provocation-box">
+<p class="box-label">Provocation Six / The Body as Marked Surface — Scars, Tags, Residues</p>
+<p>The body in this film is <strong>a marked surface</strong>. Section 04 takes this further as a discipline; here it sits as a provocation in its own right. <em>What the body has carried shows on the body.</em> Scars (Baptiste's keloid evidence of past horrors, Antoinette's faint older healed lines, Annette's burns from Coulibri). Tags (the chromatic and class signs that have been pressed onto a body and that the body keeps wearing, Daniel's red-skinned freckling as a category his society reads on him, Antoinette's Creole position as something her skin is forced to perform). Residues (mud under the nail, salt at the temple, the dirt-mask, the redness where a kerchief sat, the rope's bracelet on a wrist). <strong>The body carries the day, the year, and the inheritance.</strong> Hold this lightly here as a provocation; the deeper working list lives in Section 04 and the self-harm work lives in Section 10. The point of the provocation is that <em>the body is not blank between scenes</em>. It has been somewhere. It has been touched. It has been classified. It has been wounded and healed. The marks are language. Read them as language and treat them as such.</p>
+<div class="registers-mini">
+<p><strong>Material</strong> scar tissue, pigmentation, residue, freckling, keloid, fading mark, burn, callus. <strong>Spiritual</strong> the body that has carried something and refuses to forget it; the body as the page where the world has continued to write. <strong>Ancestral</strong> marks that travel across generations, scars that index histories larger than the individual, classifications that began before the character was born and will end after.</p>
+</div>
+</div>
+
+<p style="margin-top:32px;">These are six starting points. Build out your own. The method is the point. Encoding theory into the body is one of the central principles of how this film is being made, and you will find encodings I have not yet seen.</p>
+</div>
+</div>
+
+<!-- SECTION 06 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">06</span>
+<h2 class="section-title">Antoinette / <em>Skin, Hair, Complexion — A Through Line</em></h2>
+<span class="section-sub">Watched beauty, environmental harmony, wounded child, erotic threshold, misread madness, stripped-cold-institutionalised, fire-lit liberation</span>
+</div>
+<div class="section-body">
+<p>The arc Antoinette's body holds is <strong>watched beauty → environmental harmony → wounded child / body archive → erotic threshold → misread "madness" → stripped, cold, institutionalised → fire-lit liberation</strong>. Held inside that arc, as the foundational chromatic principle of her surface, is the rule that her skin is in <strong>physical harmony</strong> with the world it has grown up in. Few skin issues. No flares. The body in rhythm with the landscape rather than in conflict with it. Until England.</p>
+
+<p style="margin-top:18px;"><strong>The complexion arc, a production-schedule fact.</strong> We are shooting the <strong>England ending first</strong>, while we are physically in England, and shooting the <strong>Caribbean section after</strong>, in Barbados. This means our actress playing Antoinette will be <em>paler and cooler in body</em> when we shoot the attic and Thornfield, and <em>warmer and more sun-touched</em> when we shoot Coulibri and Granbois. <strong>This is fortunate.</strong> The natural complexion shift maps almost exactly onto the story arc we want. Our job is to <em>track and chart it deliberately</em>, both for her and for every character whose journey crosses the geography, and to use HMUA to fill in continuity where the natural shift over- or under-shoots what the story needs. A continuity map for her complexion across the script (built scene by scene with you and me and Bradford in conversation) is part of the prep deliverable. <em>This is one of the most important practical conversations we will have together.</em></p>
+
+<p style="margin-top:18px;">The score below holds the major HMUA beats in script order. The script's full list of charged moments is longer; this is the through line for the lead.</p>
+
+<div class="score">
+<div class="score-row"><div class="scene">Scene 4</div><div class="beat">Carriage to the honeymoon house. <strong>Watched beauty.</strong> Bonnet, white dress falling off the shoulder, self-conscious of being looked at by Rochester. Skin glowing, hair softly held but already responsive to the air around her. Lips with their own colour, not made-up. <em>The "object" image, but quietly already telling another story through the shoulder.</em></div></div>
+<div class="score-row"><div class="scene">Scene 6</div><div class="beat">Mountain village. <strong>Wet hair, rain on skin.</strong> She has been inside one of the huts speaking patois. The rain has been on her. Her white dress trails in the brown mud. The kerchief is from Rochester's neck, on her wrist. <em>Hair sopping. Skin alive. Beauty becoming environmental.</em></div></div>
+<div class="score-row"><div class="scene">Scenes 13–19</div><div class="beat">Granbois pool, sex, the hidden pool. <strong>Erotic threshold.</strong> Mud, wet skin, dishevelment, sweat from play and from sex. Hair loosened. Scene 18: <em>Antoinette licks sweat from Rochester "like drops of water from a leaf."</em> Sweat becomes water becomes eroticism becomes environment. Skin in full conversation with the place.</div></div>
+<div class="score-row"><div class="scene">Scene 28</div><div class="beat">Amelie doing Antoinette's hair. <strong>Major hair-as-power moment.</strong> Amelie pulls hard. Antoinette's hair is half-done, breathing hard, composure disturbed. Care, aggression, humiliation, intimacy, social tension all happening through hair. <em>This is hair as politics on a body.</em> The half-doneness should read precisely. Not stylised. Caught mid-act.</div></div>
+<div class="score-row"><div class="scene">Scene 34</div><div class="beat">Pre-potion. <strong>Antoinette in Rochester's shirt, pulling it over her head.</strong> The shirt obscures her face, arms raised, wrists bound by sleeves. Track face-obscuring, hair, exposed body, vulnerability, erotic danger and near-straightjacket imagery. <em>The face hidden by the lover's clothing, a quiet foreshadow of the sheet pulled over her face later in Scene 64.</em></div></div>
+<div class="score-row"><div class="scene">Scene 44 (childhood)</div><div class="beat">Garden. Undergrowth scratches and slices her legs. She drags her palm along a sharp leaf and looks down at the blood with satisfaction. <strong>Early body-marking moment.</strong> Cuts, scratches, blood, secret self-knowledge. The cut on the palm is the one Christophine heals in Scene 45, track it as a piece of skin that goes from broken to seamed-over to (faintly, much later) faint scar.</div></div>
+<div class="score-row"><div class="scene">Scene 45 (childhood)</div><div class="beat">Christophine rubs tincture into Young Antoinette's cut and the cut <strong>disappears</strong>. <em>One of the clearest spiritual HMUA moments in the film.</em> Skin as site of care, Obeah-adjacent healing, protection, touch, disappearance. The transformation is small but absolute. Plan how the cut is made and how it is removed in a single shot or short sequence, coordinate with VFX if useful, but the practical version may be the truest one.</div></div>
+<div class="score-row"><div class="scene">Scene 47 (childhood)</div><div class="beat"><strong>Young Antoinette in Tia's stained tattered dress.</strong> Hair sopping wet, feet brown with mud, face troubled. Tia's stained dress carries on her body the colour of a different child's life. The wet hair, the muddy feet, the troubled face form a single image of contested identity. Skin warm and alive, this is the child still in harmony with the climate before everything that comes.</div></div>
+<div class="score-row"><div class="scene">Scene 49 (childhood)</div><div class="beat">Christophine brushing Young Antoinette's hair, brisk and angry. <strong>Hair brushing as love, frustration, warning, pain, and political knowledge.</strong> Antoinette bracing herself against the pull. The brushing is doing the talking. Hair is the surface on which the political education is being given. <em>The brushed hair at the end of the scene should look both cared for and slightly punishing.</em></div></div>
+<div class="score-row"><div class="scene">Scene 50 (childhood)</div><div class="beat"><strong>Young Antoinette pushing nails into her forearm.</strong> A small but important self-marking moment. Not heavy-handed, but worth holding as part of the body language of Antoinette's distress, and the early seed of the leg-marks Christophine will reveal in Scene 79. <em>Lightly.</em></div></div>
+<div class="score-row"><div class="scene">Scene 55 (childhood)</div><div class="beat"><strong>The Annette and Miller's Daughter rhyme.</strong> Annette's "long dark hair, large hoop earrings" sits opposite the Miller's Daughter painting: light brown locks, blue eyes, dress falling off the shoulder. Young Antoinette twists a lock of her own hair and pulls her shoulder down. Mimicking the painted girl. <em>Hair / identity / mimesis.</em> See also Scene 90, where the painting becomes Jane Eyre in life. The Miller's Daughter is a painting (work in coordination with the painting brief, we likely have that brief already), and Jane Eyre's hair, palette, and restraint must align with that painting.</div></div>
+<div class="score-row"><div class="scene">Scenes 56–58 (Coulibri fire)</div><div class="beat">One of the largest HMUA sequences in the film. <strong>Annette's hair and hands burnt.</strong> Annette later kneeling in mud in her white nightgown, "her hair wild," crying and screaming and muttering. <strong>Young Antoinette's blood running down her face after Tia's stone</strong> in the blood-rock moment. Tia opposite her crying, Tia's own hand to her tears. The two girls a mirror, both touching their own faces (blood and tears). <em>This is the foundational mirrored-bodies image of the film.</em> Hold the two girls in chromatic and bodily dialogue: Antoinette's blood, Tia's tears, both wet, both running down faces, both held with the hand. Hold both faces with equal care. The sound is sucked from the scene; the bodies are speaking.</div></div>
+<div class="score-row"><div class="scene">Scene 70 (and POV doubling)</div><div class="beat">The Rochester / Antoinette fight. One of the biggest body-truth moments. <strong>From his POV:</strong> her hair across her face, teeth bared, sweat dripping, bite marks on Rochester's arm, blood, hot reddened palms. <strong>Then her POV corrects the image:</strong> her hair is not across her face, teeth not bared, she is defending herself. <em>POV changes the body.</em> Plan two passes of the same scene, one HMUA-loaded for "madness" and one corrected for truth. <strong>Held inside this is also Rochester perceiving Antoinette's "broader features"</strong>, face darkening, lips fuller, nose broader, as his racism takes over his eye. Communicating this is delicate. The actress's face does not change. <em>The viewer's eye is forced to perceive her differently because Rochester does.</em> We will work this carefully with Bradford. My instinct is that the shift is mostly carried by lighting and framing, with HMUA contributing a very subtle warm shadow at the temple and a slight matte at the lip line, small enough that the audience cannot consciously locate it, large enough that the perception flips. <strong>Test this thoroughly. We have to be precise and we have to be kind.</strong></div></div>
+<div class="score-row"><div class="scene">Scene 71</div><div class="beat">Christophine holds Antoinette after the fight. Rocks her, sings to her. Antoinette buries herself in the sound and smell of Christophine. <em>Less make-up, more sensory body-world.</em> Smell, tears, sweat, comfort, skin contact. The post-fight HMUA holds: a face that has just been seen incorrectly, now being held correctly. Faint redness fading. Lashes wet.</div></div>
+<div class="score-row"><div class="scene">Scene 79</div><div class="beat">Christophine roughly pulls up Antoinette's skirt. <strong>Long white fresh lines run down her thigh.</strong> The marks. Treat lightly and precisely (see Section 10). A private wound, a body archive. Christophine is the only one allowed to see them in the film. We are showing them once. The dignity of the showing is the entire point.</div></div>
+<div class="score-row"><div class="scene">Scene 82</div><div class="beat">Bedroom. <strong>Antoinette ties a plain headscarf around her hair. Calm, precise. As if preparing for something.</strong> The first hair choice she fully authors. Hair held by her own hand. The plainness is the self-possession. Body worn into.</div></div>
+<div class="score-row"><div class="scene">Scene 89</div><div class="beat">Going-back-to-England carriage. <strong>The complexion arc shifts.</strong> She is leaving the Caribbean she has been in physical harmony with. The skin is starting to lose its environmental fit even before the climate changes around her. Hair simpler than at Granbois, contained for travel. <em>The body of a woman being taken from one country to another.</em></div></div>
+<div class="score-row"><div class="scene">Scene 90</div><div class="beat">Arrival at Thornfield. The door slams in her face. <strong>Begin England's logic on her body here.</strong> Cooler skin, less glow, the start of the institutional containment. Hair held under a plain travelling cap or pinned up, the freedom of Caribbean hair already gone.</div></div>
+<div class="score-row"><div class="scene">Scene 93</div><div class="beat">Attic. <strong>White with cold, lips blue. Caribbean body in English cold.</strong> The shawl placed around her, immediately shaken off. <em>Major environmental HMUA shift.</em> The pallor here is not styled-pale. It is drained. THE MISSING on her face: warmth, moisture, glow.</div></div>
+<div class="score-row"><div class="scene">Scenes 94–95</div><div class="beat">Attic. <strong>Hair tied in two plaits, one longer than the other</strong> (the Annette echo from her confinement in Scene 59). Pale, noticeably thin, force-fed. The spoon between her lips. Brown stew splattered across Grace's white apron. <em>Hard, unromantic, bodily, institutional.</em> The plaits are a hair statement that closes the mother-daughter circle. Lips dry, eyes hollow, skin paper-dry.</div></div>
+<div class="score-row"><div class="scene">Scene 96</div><div class="beat">Excrement scrubbing scene. <strong>Antoinette holds herself with dignity</strong> while the maids gag and scrub. <em>Avoid making this a "madwoman filth" image.</em> The contrast is bodily degradation around her vs an inner dignity still intact on her face. Hair still in the plaits, eyes fixed on the high window, skin maintaining its quiet refusal.</div></div>
+<div class="score-row"><div class="scene">Scene 97</div><div class="beat">Richard Mason visit. <strong>Painfully thin and fragile.</strong> Skin paper-thin, lips parted slightly with breath, hair flat. Then she finds inner strength and attacks Richard, and by the time Grace pulls her off, there is blood. <em>Frailty to force in a single scene.</em> The blood here lives across her face, his face, and the table.</div></div>
+<div class="score-row"><div class="scene">Scenes 99–103</div><div class="beat"><strong>Final attic / rope / nightgown / fire.</strong> White nightgown, hands bound with rope. Walks the perimeter. Burns through the rope over the candle. The wrists carry rope-marks afterward, track these as residue (Section 04). Walks through the candlelight into the corridor, into the dining room, into the staircase. <strong>Crimson light cloaks her.</strong> Face flickers between red and orange. The cold blue of the attic is replaced by the heat-flush of the burn. <em>Her skin is taking the colour of the fire.</em> Lips finally re-coloured by the chromatic light. The drained body fills with light.</div></div>
+<div class="score-row"><div class="scene">Scene 103</div><div class="beat">Battlements. <strong>Hair flying out behind her in the wind.</strong> Lady Liberty. The body becoming sky. Face illuminated by fire and the deep orange moon. <em>This is the final HMUA hero image, not madness, not death, but release.</em> The hair flying is the inheritance of Annette's hair flowing out behind her on the veranda in childhood (Scene 47). The matriline closes. <strong>The flight is mother and daughter at once.</strong> She jumps. She flies home.</div></div>
+</div>
+
+<p style="margin-top:24px;">The arc is dressed-into, then dressed-by, then chosen, then stripped, then light. Skin moves from glow to harmony to wound to threshold to doubled gaze to drain to firelight to flight. <em>The body keeps the score.</em></p>
+
+<div class="zomb-note">
+<p class="box-label">A Brief Note on Zombification</p>
+<p>One framework I have been developing for this film, which I will share in fuller form through a forthcoming <strong>TRIBUTARIES</strong> document, is the concept of <strong>zombification</strong>: the colonial process by which bodies are emptied of self and refilled with another order's instructions. Antoinette's body is one register of this; Rochester's body is another (see Section 07). For Antoinette, zombification is what is being <em>done to her</em>, the renaming as Bertha, the institutionalisation, the draining of climate, glow, and self-recognition. <em>HMUA's role is to make that emptying visible without flattening her into a victim image.</em> The dignity she holds in Scene 96 is the centre of the resistance. The body is being emptied and the body is refusing to be empty. Both are happening on the same surface at the same time. I will share the TRIBUTARIES document when it is ready, and we can extend the thinking there.</p>
+</div>
+</div>
+</div>
+
+<!-- SECTION 07 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">07</span>
+<h2 class="section-title">Rochester / <em>Heat, Sweat, Tic, Fever, Mask, Corset</em></h2>
+<span class="section-sub">Fevered Englishman, briefly softened, heat-betrayed, dirt-masked, corseted-collapsed, returned to English hardness</span>
+</div>
+<div class="section-body">
+<p>Rochester's HMUA arc is <strong>the score of an Englishman being undressed by a country, refusing to admit it, breaking down across his own skin, and reassembling himself into colder English hardness at the end</strong>. Where Antoinette's body is in harmony with her climate, Rochester's body is in argument with his. <em>Sweat as betrayal, not as belonging.</em></p>
+
+<p style="margin-top:18px;">A working baseline for him through the Caribbean section: <strong>flushed from heat, faintly feverish, with recurring bouts of acute fever</strong>. Scene 3 establishes him waking from a violent fever dream, face and hair covered in sweat. <em>Hold this as his baseline condition</em>, not constant fever, but a body that never quite settles. Slight pinking at the cheekbones, faint dampness at the hairline, eyes a touch too bright. Even when he looks composed, there is a body underneath that is being worked on by the country.</p>
+
+<p style="margin-top:18px;">A specific anxiety tic to track: <strong>Rochester picks at his right thumb with his index finger</strong>, growing in quiet agitation. (This is from an earlier draft of the Daniel scene, the descriptive intent still belongs to the film even though the line was trimmed.) Anatomically this is the <em>lateral nail fold</em>, the soft skin alongside the nail. The habit, when compulsive, is called <em>dermatophagia</em>. We can borrow lightly from <strong>Black Swan</strong>'s register of anxiety surfacing through skin at the extremities, the slight redness, the half-bitten cuticle, the small patch of irritation that doesn't heal because he keeps returning to it. <em>Lightly.</em> Not grotesque. The thumb-picking is a quiet body rhythm we see in close-ups, not a horror element. Rochester's anxiety lives at the edges of his body before it lives in his face.</p>
+
+<p style="margin-top:18px;">A possible additional tracking line we can decide together in prep: <strong>a faint neck rash that grows across the Caribbean section</strong>, where the kerchief sits and where the climate is working on him from above. By Scene 75, when he ties the kerchief again "the same neck scarf his father wears," the rash should be readable in close-up, a small chronic irritation his English costume is making on his Caribbean-worked skin. <em>Hold this as a thought-starter; bring it back to me with your read.</em></p>
+
+<div class="score">
+<div class="score-row"><div class="scene">Scene 3</div><div class="beat"><strong>Fever opening.</strong> Wakes from violent fever dream. <em>Face and hair covered in sweat.</em> Vision blurred. Tries to straighten himself into English composure as the maid enters. <strong>The first HMUA key: his body is already being betrayed by the Caribbean before he has even arrived at it consciously.</strong> Hair damp at the temples, lashes wet, the slightly fevered glow that will be his baseline.</div></div>
+<div class="score-row"><div class="scene">Scene 4</div><div class="beat">Carriage. Watching Antoinette. Composed but the heat is already at the collar. Faint sweat at the upper lip. Pinking at the cheekbones. <em>Still the public English face, but the body is whispering underneath it.</em></div></div>
+<div class="score-row"><div class="scene">Scene 6</div><div class="beat">Mountain village. <strong>Hand under collar, neckerchief loosened.</strong> Antoinette unties the kerchief from his neck. The body briefly opening. Skin behind the kerchief slightly redder than the rest of the face, first sign of the chronic irritation we may be tracking.</div></div>
+<div class="score-row"><div class="scene">Scenes 13–19</div><div class="beat">Pool, hidden pool, sex, splashing. <strong>Briefly softened by Caribbean nature.</strong> The body that lets the country in for a moment. Hair wet, skin glowing instead of sweating, lashes spiked with water. <em>One of the few HMUA windows in which Rochester is luminous, briefly, before the rest of the film closes that window.</em> Antoinette licking sweat from his temple in Scene 18 makes his sweat <em>environmental</em> for one beat, before it returns to being betrayal.</div></div>
+<div class="score-row"><div class="scene">Scene 31</div><div class="beat"><strong>The ayahuasca-register forest trip.</strong> A massive HMUA moment. He strides into the forest with intent. The path appears and dissolves into spectral images. He encounters a small girl in a white dress who screams and runs. He follows briefly, then stops, holding a bunch of orange flowers, a morbid groom abandoned by his bride. Skin in the altered state should read <strong>wet, hot, dilated, off-key</strong>. Eyes too bright. Lips slightly parted. Small flush moving up the neck. The body in a vision-state where the sweat is no longer environmental and not yet feverish, a third register of wetness specific to this scene. <em>This is the body opened to the altered, refusing to admit it.</em> Plan it carefully with Bradford, who will be working chromatic and lens choices into the same trip.</div></div>
+<div class="score-row"><div class="scene">Scene 37</div><div class="beat"><strong>Daniel's house.</strong> Sealed heat box, blood-red tablecloth. Sweat through his shirt. Eyes adjusting to the dimness. <strong>The thumb-picking starts here in the script descriptive intent</strong>, quiet agitation visible at the right hand, the lateral nail fold reddening. The body that has come to hear something it does not want to hear. The fever baseline tipping toward acute.</div></div>
+<div class="score-row"><div class="scene">Scene 64</div><div class="beat"><strong>Post-potion.</strong> Vomits violently. Steps through the white powder on the floor, bare feet whitened. Sees the cockroach whitened by the same powder. Covers Antoinette's sleeping face with the sheet. <em>Stripped of social armour and yet at his most cruel.</em> HMUA: pallid and clammy after the vomit, white powder on hands, knees, soles. Hair damp and cooler. The fevered flush replaced briefly by the post-illness greyness. The cockroach image and the cover-her-face gesture are linked by whiteness, keep that thread.</div></div>
+<div class="score-row"><div class="scene">Scene 70</div><div class="beat"><strong>The fight.</strong> Bite marks from Antoinette on his arm. Bloodied palms (his and hers). Sweat dripping. Hair across the forehead. <em>Plan two passes</em> aligned with Antoinette's POV doubling: in his POV he is being attacked by a "mad" woman; in her POV he is the threat she is defending against. His body should read the same in both passes, his HMUA is steady, but Bradford and you and I will calibrate framing and light to make the same body read differently. <strong>The truth about Rochester does not depend on whose gaze is on him; what changes is the gaze.</strong></div></div>
+<div class="score-row"><div class="scene">Scene 75</div><div class="beat">Dressing room. <strong>Reassembling.</strong> Ties the kerchief again, "the same neck scarf his father wears, the same neck scarf Antoinette once removed." Sweating profusely. <em>Possible neck rash readable here</em> if we have decided to track it, an irritation that has built across the Caribbean section under the cloth. The patriline pulls him back through his throat.</div></div>
+<div class="score-row"><div class="scene">Scene 78</div><div class="beat"><strong>Forest dirt-mask.</strong> The biggest single HMUA transformation in the film for Rochester. Manic effort. Sweat rolls off him, shirt drenched, face and arms wet with sweat. <em>Dirt sticks to the skin and creates the black mask. White skin, Black mask.</em> The Fanon inversion in image. Plan the build of this carefully with Bradford: the camera starts at his back, the sweat pools, the dirt accumulates, only then the camera arrives at the face. <strong>The mask should be the conclusion of a process, not a costume effect.</strong> Real dirt or convincingly so. Build a sequence of states (clean → wet → muddied at the hands and arms → muddied at the face → fully masked) and rehearse the application. The hands matter as much as the face here, the dirt enters him through his hands.</div></div>
+<div class="score-row"><div class="scene">Scene 81</div><div class="beat">Dressing room, alone. <strong>Laces himself into a male corset.</strong> Effort visible at the temples, sweat at the hairline. Both legs braced against the dresser, pulling on the strings. Rehearsing a letter to his father. One last tug, ties a tight bow. <em>His face during this is one of the most quietly devastating images in the film.</em> A man putting empire back on his own body, alone, in front of a mirror.</div></div>
+<div class="score-row"><div class="scene">Scene 86</div><div class="beat"><strong>MASTER OF NONE.</strong> Corseted under starched shirt. Sweat appearing on brow and seeping through the shirt (the sheer translucency Ola is tracking on the cloth side). Mouth too full, voice too loud, tongue out, cheeks flying. Multiple voices speak through him. <em>Body constrained by the corset, face escaping into something that is not entirely his any more.</em> HMUA: heat at the brow, dampness through the shirt visible from inside it, possible chest-flush rising under the lace. <strong>Reddened, strained knuckles</strong> as he bangs his fist on the table, grips the cutlery, presses his palms down. The hands are caught in the same constriction the corset is putting on his ribs. <strong>The face is in a register of breakdown made comic and devastating at once.</strong> Cheeks high colour. Eyes wet. Mouth wider than English propriety can hold. The hair starts disciplined and ends disordered.</div></div>
+<div class="score-row"><div class="scene">Scene 89</div><div class="beat">Going-back. The Baptiste slap. <strong>The body returning to English hardness.</strong> Sweat receding. Pinking cooler. Hair tighter. <em>The Caribbean is being closed off on his body.</em> But the face that closes off is not the face that arrived, there is now a thinness around the eyes that was not there before. Something has been left behind that is not the same as what arrived.</div></div>
+<div class="score-row"><div class="scene">Scene 90 →</div><div class="beat">Thornfield. <strong>Full English hardness reassembled.</strong> Skin pale, dry, no longer flushed. Hair grey-touched (Grace says "there's grey in his hair and misery in his eyes"). The fever no longer expressed as flush; expressed as a chronic dryness, a wear. <em>The body that came back is not the body that left.</em> The face wears the entire arc. Plan the grey at the temples carefully, small, suggestive, not aging-styled.</div></div>
+<div class="score-row"><div class="scene">Scene 103</div><div class="beat"><strong>Inside the fire.</strong> Coughing, spluttering, calling Bertha. The thermal-camera saturation: he becomes a white silhouette against the darker background. The darker background turns to white and swallows him. <em>HMUA's last reading of him is sweat, soot, and a face that is being unmade by the heat that he could never admit was his to reckon with.</em> He disappears.</div></div>
+</div>
+
+<p style="margin-top:24px;">The arc is fevered, briefly opened, heat-betrayed, vomit / sweat / shame, dirt-masked, corseted breakdown, returned-English-hardness, thermal-erasure. <em>The body that was English at the start is an absence by the end.</em></p>
+
+<div class="zomb-note">
+<p class="box-label">A Brief Note on Zombification</p>
+<p>The TRIBUTARIES framework I am developing finds its clearest case in Rochester. He arrives a man and is, across the Caribbean section, hollowed out by the very project he came to enact, then refilled with borrowed cruelty, borrowed language, and borrowed posture. The corset he laces himself into in Scene 81 is the visible apparatus of that refilling. The dirt-mask in Scene 78 is the visible apparatus of the hollowing, the Caribbean entering him through his own hands. <em>HMUA's job is to make this process readable on his face and on his hands without overstating it.</em> The Caribbean has gotten into him. He cannot admit it. The body shows what the dialogue refuses. I will share the TRIBUTARIES document when it is ready.</p>
+</div>
+</div>
+</div>
+
+<!-- SECTION 08 -->
+<div class="section section-christophine">
+<div class="section-header">
+<span class="section-number">08</span>
+<h2 class="section-title">Christophine / <em>Composure as Power, Luminosity, Akan Inheritance</em></h2>
+<span class="section-sub">Skin that absorbs light. A body organised by knowledge.</span>
+</div>
+<div class="section-body">
+<p>Christophine's body is one of the deepest design opportunities in the film, and one of the easiest to flatten if we are not careful. <strong>She is not rustic. She is not folkloric. She is not servant-coded. She is sovereign.</strong> Her skin is part of her power. Her self-presentation is what cannot be owned. The way her body holds itself is the argument.</p>
+
+<p style="margin-top:18px;">The frame I would like you to hold for her is <strong>spiritually composed, not cosmetically perfect</strong>. Her beauty is not prettiness. It is composure as power. <em>She should look like someone whose body is organised by knowledge.</em> Skin, hair, headwrap, jewellery, mouth, hands, nails, posture, all should feel deliberate, all should feel self-authored. Even when wet, working, angry, grieving, or leaving, she should not visually collapse.</p>
+
+<p style="margin-top:18px;">The single most important HMUA distinction I want to draw for her: <strong>her skin is luminous, not sweaty</strong>. Skin that absorbs light. Skin that gives light back. The heat belongs to her world. She may sweat, but she does not look <em>undone</em> by sweat. <em>The difference between sweat as betrayal for Rochester and sweat as environment for Christophine is the difference between two entire bodies.</em> Heat does not defeat her. The country is hers. The light is hers.</p>
+
+<p style="margin-top:18px;">Three registers, explicitly. Each is a jumping-off point. Take them further.</p>
+
+<div class="registers-mini" style="margin-top:24px;border-top:none;padding-top:0;">
+<p><strong>Material</strong> Luminous skin, not editorialised. Light absorption tested under candlelight, Caribbean sun, river-water reflection, kitchen oil-light, and Bradford's lens specifically. <strong>Headwrap</strong> elaborately tied, research the named ties, particularly the <em>tête calendée</em> and the <em>foulard</em>, and decide which Christophine wears (and whether she wears different ties on different days). Silk, madras. <strong>Hair beneath</strong> the wrap should be cared-for, oiled, plaited or wrapped, never afterthought, the wrap is a small architecture and what is under it is its foundation. <strong>Heavy gold earrings</strong>, Akan / Gold Coast goldsmithing inheritance. Lobes <em>slightly stretched</em> from years of weight. <strong>Hands</strong>, working hands, but cared for. Nails clean and short. The hands of a healer who knows the inside of a calabash and the outside of a child's wound. <strong>Mouth</strong>, used. Speaking, singing, warning, kissing the top of Antoinette's head, blessing, cursing.</p>
+<p style="margin-top:0.9em;"><strong>Spiritual</strong> Composure as power. The body is held. The skin is held. The mouth is held. <em>Even at her most wet and most ritual (the river scene Scene 76, white sarong waist-deep, slow ritual washing, then the underwater scream), she is not undone.</em> She is releasing into the water on her own terms. Sweat is environmental. Tears, when they come, are dignified. Grief, when it comes, is held. <em>The body is organised by knowledge.</em></p>
+<p style="margin-top:0.9em;"><strong>Ancestral</strong> Martinican inheritance, the practice of <em>doudouisme</em> in its complicated history (acknowledging both its colonial framing and its reclamation). Francophone Caribbean elegance. African diasporic dress and grooming histories. The headwrap as a continent of meaning, with West African, Senegalese, Yoruba, Akan resonances depending on tie. The earrings as Akan goldsmithing, gold worked by hand, carried across the Middle Passage as one of the few forms of wealth that could be hidden, melted, reshaped, kept. Hands that know roucou and jagua and the calabash and the mortar. <em>And the future register</em>: a woman who already knows what cannot be known yet, dressing forward into a world that has not arrived.</p>
+</div>
+
+<p style="margin-top:24px;">A note on the <strong>younger Christophine</strong> we will see in the childhood flashbacks (Scene 11 and 49 in particular, where she is brushing Young Antoinette's hair and entering the house just after the wedding scene). We will use a combination of <strong>subtle aging-down</strong> on the actress and <em>lighting / hair / wardrobe</em> carrying the time difference. We do not need to push the make-up alone to do this work, the lighting is on our side, the hair can be slightly less mature in its tying, the dress can be of an earlier vintage. HMUA's role is small, careful, supplementary. <strong>Plan this with me and Bradford in prep, the proportion of make-up to lighting in the aging-down is a calibration, and we should make it together.</strong></p>
+
+<p style="margin-top:18px;">Specific anchors from the script. Scene 11, "heavy gold earrings, silk turban elaborately tied." Scene 26, working at the African mortar in her kitchen, full bodyweight on the pestle, calabash of strained tomato pulp, coffee specks in the air, and her body, hair, and skin holding their composure throughout the labour. Scene 45, drawing tincture from the fold of her own skirt and rubbing it into Young Antoinette's cut until the cut disappears. Scene 49, brushing Young Antoinette's hair brisk and angry. Scene 71, holding Antoinette after the fight, smell and sound and skin contact of the holder. Scene 74, "you have great presence of mind, Christophine", said to her by a doctor, on her own life. <em>The dress, the hair, the earrings, the skin are the mind.</em> Scene 76, the river ritual: white sarong, gold jewellery, slow washing, underwater scream, luminous, ritual, released. Scene 79, lifting Antoinette's skirt to reveal the cuts. Scene 85, riding through the dark forest soaked but only "added to her majestic dignity." <em>Soaked is not undone for her. Soaked is added dignity.</em> The dub bassline gets heavier as she rides.</p>
+
+<p style="margin-top:18px;">Read alongside <strong>Ola's Section 06 (Christophine)</strong> and <strong>Nora's Provocation Six (Christophine's Style as Spatial Argument)</strong>. The order around her body is a continuation of the order on her body. The chromatic and tactile choices for Christophine's skin, hair, costume, and rooms should resonate. <em>They are the same argument made on three surfaces.</em></p>
+
+<p style="margin-top:18px;">Reading and reference threads to start with: <strong>Patricia Mohammed</strong> on Caribbean dress, gender, and the cultural politics of self-presentation. <strong>Honor Ford-Smith</strong> on Caribbean women's cultural production. Carolyn Cooper on Jamaican women's self-fashioning. Steeve O. Buckridge's <em>The Language of Dress</em>. Joanne B. Eicher on African and African diasporic dress. Writing on the <em>tête calendée</em>, the <em>foulard</em>, and the layered Martinican headwrap traditions where each tie and fold carries specific meaning. The photography of <strong>Seydou Keïta</strong> and <strong>Malick Sidibé</strong> for the dignity of self-presentation that runs through their work. <strong>Roy DeCarava</strong> for deep light and the absorption of light by Black skin. <strong>Carrie Mae Weems</strong> and <strong>Lorna Simpson</strong> for photography that reads body and history. <strong>Sonia Boyce</strong> and <strong>Lubaina Himid</strong> for the colonial archive worked through Black British art. Push these threads further. Bring me what you find.</p>
+
+<div class="script-note"><p><strong>From the script:</strong> "She wears heavy gold earrings that pull down on her lobes. Her silk turban is elaborately tied," Scene 11. The mortar work, Scene 26. The tincture from the fold of her skirt, Scene 45. The brushing, Scene 49. The river ritual, Scene 76. The lifting of Antoinette's skirt, Scene 79. The forest ride, Scene 85. "I see enough already child. I have right to my rest," Scene 24.</p></div>
+</div>
+</div>
+
+<!-- SECTION 09 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">09</span>
+<h2 class="section-title">The Wider Cast / <em>HMUA Notes Across the Ensemble</em></h2>
+<span class="section-sub">Annette, Pierre, Tia, Daniel, Baptiste, Hilda, Amelie, the Masons, Old Mr Rochester, Godfrey, the cook, the carers, Grace and Leah, Jane Eyre</span>
+</div>
+<div class="section-body">
+<ul class="threads">
+<li><strong>Annette.</strong> Antoinette's mother and a foreshadow of the daughter at every level. <em>Long dark hair, large hoop earrings</em> (Scene 52, the contrast with the Miller's Daughter painting). The frown between her dark eyebrows in Scene 47 "so deep it might have been cut by a knife." <em>The silhouette on the veranda, hair flowing out behind her in the wind</em>, the foreshadow of Antoinette at the battlements. Coulibri fire aftermath: <strong>hair and hands burnt</strong>, then kneeling in mud in white nightgown, "her hair wild," crying and screaming. The flashback in Scene 59 of her own confinement: <strong>two plaits, one longer than the other</strong> (the foreshadow of Antoinette's attic plaits). <em>Annette is a body whose interior has been removed.</em> THE MISSING reads on her face. Hair that was once luminous now flat. Skin once warm now drained. The moment Antoinette throws herself into her mother's arms and Annette pulls back, "Pierre?", that is the face of a woman who has lost the ability to recognise even her own daughter. Hold this with care.</li>
+<li><strong>Pierre.</strong> Antoinette's brother. <em>Frail, sickly, "thin pale hands"</em> gripping the wall as he tries to take a step in Scene 42. A small body, profoundly tender, who dies in the Coulibri fire. HMUA's job is to make him look <strong>genuinely fragile without horror-styling him</strong>. Skin pale and slightly translucent, lips with very little colour, lashes long and dark against the pallor, hair fine and soft, the slight lavender shadow under the eyes that comes from a body not getting enough. <em>Beauty in the smallness of him.</em> He is half-cared-for by a household that is not quite paying attention to him, and that should read on his body too, the hair very slightly uncombed at the back, the small dirt mark at the wrist that no one wiped off. Frailty handled with tenderness, not pathology.</li>
+<li><strong>Tia.</strong> The Black girl who is Young Antoinette's first friend and first wound. Skin in physical harmony with the Caribbean, body of a child of the climate. <em>Hair often wet</em> (the cousin to Antoinette's wet-hair moments). Bare feet always. The Coulibri-fire blood-rock scene (Scene 58) is her HMUA hero moment: she throws the stone, blood runs down Antoinette's face, then <strong>Tia herself starts to cry, Tia lifts her own hand and touches her tears</strong>. <em>The two girls a mirror, both touching their own faces.</em> Hold the parity of the wound and the tear. Antoinette's blood, Tia's tears, both wet, both running down faces, both held with the hand. Tia's body should read as the child of the country that Antoinette wishes she could be and is forbidden from being.</li>
+<li><strong>Mr Mason.</strong> The Englishman who marries Annette. <em>The English settler colonist face</em>: sun-reddened, slightly broken capillaries at the cheeks, English skin that is not adapting. Hair pomaded in the period style. <strong>The body of a man who cannot accept that the climate is bigger than him.</strong> Wedding-day complexion in Scene 50 (slightly heat-flushed under the formality), confidence-day complexion in Scene 52 (banging the table, controlled outburst), Coulibri-fire complexion in Scene 56–58 (smoke-touched, hair singed, the colonial certainty briefly cracking).</li>
+<li><strong>Richard Mason.</strong> Mr Mason's son and Antoinette's stepbrother. Younger, dressed in the next generation's English style. <em>The skin of a man who handles paperwork.</em> Slightly cooler complexion than the older Mason, less sun on him. Hair more clipped, more contemporary in its grooming. Appears at the start (the dowry transaction with Old Mr Rochester) and at the end (the attic visit, Scene 97). When he visits the attic, his face above the small handkerchief blocking the stench is <em>cold, polite, English</em>, the body of the bureaucracy of confinement.</li>
+<li><strong>Old Mr Rochester.</strong> Rochester's father. The patriline face. <em>Heavy, confident, oil-painting-ready.</em> Skin that has been cared for by a tradition. Hair professionally tended. Read his living face against the painted patriline portraits at Thornfield in Scene 101 (Old Mr Rochester, his father, and his father before him, all hanging in oil). <strong>His face in life and his face in paint should rhyme</strong>, coordinate with Nora on the painting brief and with the image researchers.</li>
+<li><strong>Daniel.</strong> One of the most particular HMUA figures in the film. <strong>Daniel is what is called in the West Indies "red-skinned"</strong>: light-skinned, fiery ginger hair, freckled. The freckling, the gingerness, the pinking under heat, these are doing work on the racial taxonomy thread (the "red" in his skin and hair is itself a category in Caribbean colour vocabulary, and his social position rests on it). <em>Two complexions for him at two settings.</em> <strong>Sunday-best Daniel</strong> when he arrives at the pool: ginger hair groomed, freckles powdered down or just present, skin slightly cooler, performing respectability. <strong>At-home Daniel in Scene 37</strong>: in the sealed heat box of his own house, sweaty, woozy, in worn-out white singlet, chewing stick in his mouth, skin pinking under the singlet, hair dampening at the temples. The chewing stick is a <strong>mouth-and-hand</strong> object, he gnaws it and works it between his fingers. Track his teeth, mouth corners, the pinking at the chest above the singlet. <em>His resentment lives on his face as much as in his words.</em></li>
+<li><strong>Baptiste.</strong> The household figure with quiet authority, slapped by Rochester in Scene 89. <strong>Luminous skin, not sweaty</strong>, clustered with Christophine and Hilda. The heat belongs to him too. <em>Steady, dignified, careful.</em> Hair groomed in a Caribbean tradition. <strong>Keloid scars</strong> revealed in Scene 84 when his shirt hangs open over his bare torso, evidence of past horrors. Treat the scars with <strong>precision and dignity</strong>. They are historical evidence on a body, not decoration. Likely require careful prosthetic / stipple work. Coordinate with the actor and with the sensitivity of the moment. <em>The scars are the silent half of his composure.</em> Hands steady. Eyes steady.</li>
+<li><strong>Godfrey.</strong> The figure with the machete and the Bible, present in Antoinette's archive intercuts in Scene 102 as one of the iconic images of the colonial mind in collapse. <em>Working face, working hands.</em> Skin that has known field and chapel both. Hair simple, period-Caribbean, possibly close-cropped. Hands that hold both a tool and a book. <em>The face that holds both questions without privileging either.</em></li>
+<li><strong>Amelie.</strong> The teasing, knowing servant. <strong>Somewhat luminous</strong>, skin in the Caribbean register, body that knows it is being looked at and decides to look back. Hair in a <em>timeless braiding tradition</em>: braids that are period-honest because the braiding language is older than the period and still alive now. (<strong>Honour the braiding as continuous Black hair tradition, not as period costume.</strong>) Eyes alive, mouth ready for the smirk. Lips with their own colour. The Scene 28 hair-pulling moment is a body-on-body moment for her too, she is not just doing Antoinette's hair, she is using hair to make a statement, and her own face during it should hold the precision of that intention.</li>
+<li><strong>Hilda.</strong> Younger, watching, mostly silent. <strong>Luminous skin</strong>, body in harmony with the climate. Hair in a <em>timeless braiding tradition</em> alongside Amelie's, both women carry hair traditions older than the period and continuous to now. The neckerchief mouth-stuffing (the cloth she presses into her own mouth to stop herself laughing) is a small but specific HMUA-and-costume crossover beat: track the slight redness at the corner of the mouth where the cloth has been pressed, the dampness on the cloth afterward. Cross-flag with Ola.</li>
+<li><strong>The cook</strong> in Scene 73, who flees Granbois balancing a mattress on her head and dragging an oversized broken case. <em>The skin and hair of a working woman in the act of leaving.</em> A bit of sweat at the temple, hair partially loose under the carry, eyes fixed forward. The HMUA reads: dignity in flight.</li>
+<li><strong>The two carers</strong> in Annette's confinement flashback (Scene 59). The man and the woman in the bare room, standing too close to her. <em>The faces of the institution.</em> Skin and hair grey, neutral, dressed for the apparatus they belong to. Hair scraped back. Mouths slightly tight. The faces should not be cartoon-cruel. They are <strong>worse</strong> for being ordinary.</li>
+<li><strong>The ex-enslaved children</strong> in Scene 44. Tattered, sun-touched, alive. Hair in working children's traditions. Skin alive with the day. Eyes bright. <em>The Caribbean body in childhood, in harmony with the country.</em> Antoinette plays among them. They mirror the body she is allowed to be in childhood and not allowed to be in adulthood.</li>
+<li><strong>Grace and Leah.</strong> The English maids at Thornfield. <strong>The hard service face.</strong> Skin closed, judgmental, dulled. Hair contained under caps, scraped back. <em>The body of the apparatus that holds Antoinette in the attic.</em> Grace older, harder, the keeper of the keys. Leah younger, not yet fully hardened, the warmth has not left her face entirely but it is leaving. The excrement-scrubbing scene (Scene 96) is one of their HMUA-loaded moments: faces turned away, a hand over the mouth, gagging, while Antoinette holds dignity. <strong>Their faces are the room's response. Antoinette's face is the body's refusal.</strong></li>
+<li><strong>Jane Eyre.</strong> Appears at Thornfield in Scene 90, in the welcome line of staff, as Antoinette steps out of the carriage. <em>The image Antoinette has been seeing since childhood.</em> The Miller's Daughter painting at Coulibri shows a woman with <strong>brown curly locks, blue eyes, dress falling slightly off the shoulder</strong>. Coordinate with the existing painting brief, the painting is being resolved through that brief, and we work in alignment with it. Jane Eyre at Thornfield must align with the painting's image: hair, palette, restraint, period English propriety. <strong>The aim is a deep visual rhyme, so that when Jane appears she feels like the painted image stepping into living form.</strong> Coordinate with Nora (the painting under her department's remit), with Ola on costume silhouette, with Bradford on framing, and bring the painting brief into the room early so we are all aligned.</li>
+</ul>
+
+<p style="margin-top:24px;">A note on the <strong>cluster of luminous skin</strong>. Christophine, Baptiste, Hilda, and somewhat Amelie share a skin grammar across the film: skin that absorbs light, that holds heat without breaking, that does not collapse into sweat. <em>Treat them as a quiet ensemble of physical sovereignty.</em> Their skin is doing the same argument-work even when they are not in the same scene. Hold them collectively in your reference work, not only individually.</p>
+</div>
+</div>
+
+<!-- SECTION 10 -->
+<div class="section section-careful">
+<div class="section-header">
+<span class="section-number">10</span>
+<h2 class="section-title">Self-Harm and Distress Marks / <em>Lightly, with Care</em></h2>
+<span class="section-sub">A short, careful section — restraint is the register</span>
+</div>
+<div class="section-body">
+<p>The film holds the fact of Antoinette's self-harm without making it the subject of any single scene. <strong>Lightness is the register.</strong> We lift directly from what the script already shows us, and we expand only by a quiet handful of light suggestions you can build on. Nothing here should ever be sensationalised. <em>The body is not there to be punished by the image. The body is there to tell the truth.</em></p>
+
+<p style="margin-top:18px;">The two on-page anchors:</p>
+<ul class="threads">
+<li><strong>The cutlass scene early.</strong> Where the cutlass enters the world of the film as a tool that becomes an instrument. Establishes the presence of sharp things in the household and in her hand, without any explicit self-harm action. The viewer registers the possibility.</li>
+<li><strong>Scene 79, Christophine lifts Antoinette's skirt.</strong> "Long white lines, running down Antoinette's thigh, fresh." This is the only on-page reveal of the self-harm itself. <em>Christophine is the only one allowed to see them.</em> The dignity of the showing is the point. We see them once. They are not exhibited again.</li>
+</ul>
+
+<p style="margin-top:18px;">A small set of <strong>further light suggestions</strong>, proposed for your read. Strike, swap, or add to. The principle is the same: faint, private, not-foregrounded, present.</p>
+<ul class="threads">
+<li><strong>Faint older healed scarring at the wrists.</strong> A few thin lines, long since closed over, only readable in close-up and only when the wrist is shown. <em>Old wounds, no longer fresh.</em> Communicates that the marks on the thigh in Scene 79 are not the first.</li>
+<li><strong>A half-bitten cuticle on Antoinette's own hand.</strong> Sister-tic to Rochester's thumb-picking. Small. Specific. Reading as a body that turns inward under pressure. Different in tone to his, his is anxiety; hers is the quieter fact of a body trained to find its own surface when the world is too much.</li>
+<li><strong>The marking just visible at the ankles.</strong> When she is barefoot in the attic in Scene 99, briefly, before the rope binds her wrists, her ankles can carry the faintest old marks. Read once and not again. <em>The body remembers.</em></li>
+<li><strong>A single small mark she touches when distressed.</strong> A self-soothing gesture more than active self-harm, a finger that returns to a healed line at the wrist or the inside of the forearm when she is unsettled. The hand goes to the same small place each time. <em>The body finding its own evidence.</em> This is the most internal of the suggestions and may be the most powerful.</li>
+</ul>
+
+<p style="margin-top:18px;">A few principles to hold across all of these.</p>
+<ul class="threads">
+<li><strong>Precision and dignity, never spectacle.</strong> Marks are private wounds, body archive, intimate evidence of an interior we are not exhibiting. They are not horror. They are not cosmetic. They are the body's truth carried discreetly.</li>
+<li><strong>Show once, do not exhibit again.</strong> Scene 79 is the single full reveal. Other moments are glimpses, half-readings, suggestions in close-up that the audience may or may not register consciously.</li>
+<li><strong>No reading of madness.</strong> The film's whole intervention is to refuse the "madwoman in the attic" framing. <em>The marks are not evidence of madness.</em> They are evidence of a body that has been carrying more than it can hold, in a world that has not given it other ways to carry.</li>
+<li><strong>Care ethics around the actress.</strong> Coordinate carefully with her, with intimacy support, and with continuity. The marks are an act we are doing together with her, not an effect we are applying to her.</li>
+</ul>
+
+<p style="margin-top:18px;">Beyond Antoinette's self-harm, hold related <strong>distress marks</strong> with the same care: <em>Pierre's frailty, Annette's burnt hair and hands, Antoinette's blood after Tia's stone, Baptiste's keloid scars, the bite-marks on Rochester's arm, the rope-marks on Antoinette's wrists in Scene 99, the bruising or pallor of force-feeding in Scenes 94–95.</em> All distress marks, scars, burns, restraint marks, and institutional signs handled with precision and dignity, never spectacle. <strong>The body is not there to be punished by the image. The body is there to tell the truth.</strong></p>
+
+<div class="script-note"><p><strong>From the script:</strong> Scene 44, "Young Antoinette drags her palm along a sharp leaf… looks down at the blood with satisfaction." Scene 50, Young Antoinette pushing nails into her forearm. Scene 79, "long white lines, running down Antoinette's thigh, fresh." Scene 78, Rochester sweat and dirt-mask. Scene 84, Baptiste keloid scars. Scene 99, hands bound with rope, burned through over the candle.</p></div>
+</div>
+</div>
+
+<!-- SECTION 11 -->
+<div class="section section-atlantians">
+<div class="section-header">
+<span class="section-number">11</span>
+<h2 class="section-title">The Atlantians / <em>Painted Bodies, Second Eyelids, Deep Ocean Made Flesh</em></h2>
+<span class="section-sub">Substantial dedicated treatment — your big experiment</span>
+</div>
+<div class="section-body">
+<p>The Atlantians are HMUA's biggest single creative experiment in the film. They appear in <strong>Scenes 62 and 63</strong>, inside the love-potion sequence, as figures rising out of the underwater Sargassum world. <em>They appear naked, achieved through full-body blue-black paint.</em> The "costume" is the painted skin itself. There is no cloth. There is no hair styling in the Western sense. There is body, paint, hair as it is, and a single specific elaboration: the dual eyelids.</p>
+
+<p style="margin-top:18px;">The register is <strong>Afro-surrealist and Afro-futurist at once</strong>. They are figures in whom past, present, and future cohabit. The deep ocean made flesh. Ancestors before the body and ancestors yet to arrive. Atlantis as ancestral memory and forward-arriving form. <em>This is one of the few places in the film where we depart fully and intentionally from naturalism, and the departure has to earn itself with charge and discipline.</em></p>
+
+<p style="margin-top:18px;"><strong>The right blue-black across different hues of dark skin.</strong> This is the core HMUA challenge of the section, and one of the most important calibrations you will run in prep. The Atlantians are played by performers across a range of dark skin tones, and the <em>same conceptual blue-black</em> has to land with equivalent depth and life on each of them. A blue-black that reads as ocean-deep on one body may read as flat or as too-warm on another. <strong>Mix custom shades for each performer's undertone.</strong> Test each on Bradford's lens under multiple light worlds (underwater, candlelight, daylight, the white-powder bedroom of Scene 64). The deep ocean is not a single colour. It has indigos in it, blacks in it, ultramarines, and the slight green-blue that comes when light penetrates a few feet down. Build a vocabulary of blue-blacks that share a family but speak to different bodies.</p>
+
+<p style="margin-top:18px;"><strong>The dual eyelids, the second set of eyes.</strong> Painted on the closed eyelids. They open and close with the regular eyes, or they can be painted in a way that suggests they remain open even when the regular eyes close. <em>The challenge is to make this look both mystical AND believable as second lids.</em> Not stage-painted. Not mask-like. The eyes painted on the lids should feel as if they have been part of these bodies forever, not as if they have been added. Plan tests with the performers, with detailed brushwork, with possible appliqué or transfer techniques. <strong>Test under Bradford's lens early</strong>, second eyelids that work in the trailer may collapse on screen, and vice versa. The mystical-and-believable register is something that can only be calibrated through actual filmed tests, not through fitting-room work.</p>
+
+<p style="margin-top:18px;"><strong>Application time and continuity.</strong> Full-body paint is a long process. Plan for early calls. Plan for body-paint specialists alongside your core team. Plan for paint that holds under water (the sequence is a real water sequence) and that holds under the <em>day-for-night shooting condition</em> we are likely using for the Atlantians, where exterior daylight is being graded and treated to land as deep night-water. The paint has to read as ocean-deep under that specific lighting and grade combination, not under raw sun. Plan for breakdown stages, paint that has dried and cracked vs paint that is freshly applied vs paint that is half-washed-off. Coordinate with stunt and water safety.</p>
+
+<p style="margin-top:18px;"><strong>References to push past, not as a list of imitations but as deeper sources to argue with.</strong></p>
+
+<ul class="threads">
+<li><strong>Indigenous Caribbean body painting.</strong> <em>This is the deepest and most geographically rooted reference for our Atlantians.</em> The Taíno, Carib, and Arawak traditions of body marking using <strong>roucou</strong> / annatto (red, from <em>Bixa orellana</em>) and <strong>jagua</strong> / genipa (blue-black, from <em>Genipa americana</em>). Jagua is, chemically and historically, one of the closest plant-derived sources to the blue-black we are imagining. It is the colour the Caribbean indigenous body has been painted with for centuries. <strong>This is not a citation; it is a continuity.</strong> The Atlantians sit inside an indigenous Caribbean lineage of painted body, and that lineage matters to the film's deeper argument about who was here before.</li>
+<li><strong>Ancient Egyptian funerary imagery.</strong> Particularly the painted blue-black skin of certain deities (Osiris in his green-and-black register, the lapis-blue painted skins of various forms across the Book of the Dead). <em>Painted body as deity, as ancestor, as resurrected form.</em> Egyptian kohl traditions also relevant for the eyes.</li>
+<li><strong>Yoruba indigo and Adire-related body work; Gelede and Egungun masquerade.</strong> West African traditions of indigo and painted-body masquerade as ancestor-meeting. The painted body as a meeting point with the dead and the unborn. Adire's specific deep blues are in the same chromatic family we are working in.</li>
+<li><strong>Maya body painting and Maya blue (Bonampak).</strong> The Bonampak murals show Maya bodies painted in deep ceremonial blues, the chemically remarkable "Maya blue" that has held its colour for over a thousand years. <em>A second indigenous-Americas reference for body in deep blue, parallel to the Caribbean one.</em></li>
+<li><strong>Nuba and Surma body painting (Sudan and Ethiopia).</strong> Extraordinary historical traditions of painted skin as ceremony, identity, beauty, and rite. The Nuba in particular for full-body painted application as everyday and as ceremonial.</li>
+<li><strong>Wodaabe Gerewol painted faces and Himba <em>Otjize</em> ochre tradition.</strong> Pastoralist West and Central African traditions of body and face painting carried daily, where the painted body is the body. Otjize specifically for the red ochre paste rubbed on skin (a chromatic cousin to roucou).</li>
+<li><strong>Drexciya.</strong> The Detroit techno project that built an Afrofuturist mythology of <em>Black Atlanteans descended from pregnant African women thrown overboard during the Middle Passage who learned to breathe underwater</em>. Listen to the music. Read the liner notes, mythos, and the maps. This is one of the spiritual sources of the Atlantians as a concept in this film. <strong>The Atlantians are partly Drexciya's children.</strong></li>
+<li><strong>Sun Ra's long Afrofuturist project.</strong> The painted face, the cosmic costume, the ancestor-arriving-from-Saturn. Held as a register, not a copy.</li>
+<li><strong>Ellen Gallagher.</strong> Her Drexciya-related water and painted-body work. <em>Held lightly as one tributary among several</em>, not over-extended. One reference among many.</li>
+<li><strong>Missy Elliott music videos.</strong> A major contemporary reference for Afro-surreal body imagery. <em>"She's a Bitch," "Get Ur Freak On," "Pass That Dutch," "Sock It 2 Me," "Lose Control," "We Run This,"</em> and others, across her catalogue, she has been one of the great architects of the painted, prosthetic, surreal Black body in popular image. The shapes, the body-paint moments, the prosthetic eyes and limbs, the painted suits, the futurism shot through with humour and play. <em>Watch them all.</em> Many of the Atlantian moves we are after live in her video grammar.</li>
+</ul>
+
+<p style="margin-top:24px;">Across all of these, the headline is: <strong>the Atlantians are not a costume effect. They are a presence.</strong> Painted body as continuous with the deepest histories of the Caribbean, of West Africa, of ancient Americas, and as forward-arriving from Detroit techno mythology and contemporary Black surreal video. <em>The ocean made flesh, holding past and future inside one body.</em> That is the brief.</p>
+
+<p style="margin-top:18px;">Coordinate with <strong>Ola</strong> on the absence of cloth (her doc points readers here for the deeper treatment), with <strong>Bradford</strong> on lens and grade and underwater behaviour, and with the SFX team on water-safe paint formulations. <strong>This is one of the experiments in this film I am most excited to make with you.</strong> Bring proposals. Bring tests. Bring methods I have not yet thought of.</p>
+</div>
+</div>
+
+<!-- SECTION 12 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">12</span>
+<h2 class="section-title">Big Composite Scenes / <em>Where the Body Work Is Shared</em></h2>
+<span class="section-sub">Multi-character, multi-element sequences that sit beyond a single through line</span>
+</div>
+<div class="section-body">
+<p>The character through lines in Sections 06, 07, 08, and 09 cover the major beats for each principal. A handful of <strong>big composite sequences</strong> sit slightly outside any single character and want to be held collectively. Holding them here so they read as composite design challenges, not as character notes alone.</p>
+
+<ul class="threads">
+<li><strong>The Coulibri fire (Scenes 56–58).</strong> The largest single HMUA sequence in the first half of the film. Annette's burnt hair and hands. Annette in white nightgown, hair wild, mud, kneeling, screaming. Pierre's small frail body lost to the fire. <strong>The blood-rock</strong>, Tia throws the stone, blood runs down Young Antoinette's face, Tia begins to cry, Tia's own hand to her tears, the two girls a mirror, the sound sucked from the scene. <em>Hold the parity of the wound and the tear.</em> Then Coco the parrot on fire on the railings, the crowd's hush, Mr Mason ushering Annette and Pierre into the carriage. Smoke, ash, soot, burns, hair singed at the edges, faces darkened by smoke, the white nightgown dirtied with mud and ash. <strong>Coordinate with Nora (the burning house), Bradford (the fire light on faces), Ola (the night-gown and hair-burnt aftermath), and the SFX team.</strong> Multiple bodies in one sequence, each carrying a different register of the same event. Plan continuity carefully across the burn, the hair-singed Annette, the blood-faced Antoinette, the ash-coated children of the household, the soot-touched faces of the carriage interior afterward.</li>
+<li><strong>The pre-potion / Atlantians / white powder sequence (Scenes 61–64).</strong> A composite HMUA scene. White powder across the floor of the bedroom. Rochester wet-through in the sea vision (sweat or seawater or both, see the wetness taxonomy in Section 13). <strong>The Atlantians appear in Scenes 62 and 63</strong> with sealed eyes and the second set of eyes painted on the lids. Then in Scene 64, Rochester vomits violently, steps through the white powder, sees the cockroach whitened by it, covers Antoinette's face with the sheet. <strong>Six HMUA registers across this composite:</strong> (1) the painted bodies (Atlantians), (2) the second eyelids, (3) the white powder on Rochester's bare feet and hands, (4) the post-vomit pallor, (5) the whitened cockroach (a small but specific colour-of-death image), (6) Antoinette's sleeping face about to be covered by the sheet. Plan as a composite.</li>
+<li><strong>The forest dirt-mask (Scene 78).</strong> Rochester's biggest single HMUA transformation in the film. Already in his through line (Section 07). Worth re-flagging as a sequence-level composite: the back-of-frame approach, the digging hands, the wet shirt, the dirt accumulating on hands first then arms then face, then the camera arrives at the face and we discover the mask. <em>The mask is a process, not an effect.</em></li>
+<li><strong>MASTER OF NONE (Scene 86).</strong> Already in Rochester's through line. As composite: the body in the corset under the starched shirt, sweat seeping through, mouth too full, multiple voices, candles all around, moths falling into the candles, the brown pastry of the pie peeling under humidity. <strong>HMUA reads alongside Ola (corset and shirt translucency), the SFX team (the moths and the candles), and Bradford (the close work on face and mouth).</strong></li>
+<li><strong>Christophine's river ritual (Scene 76).</strong> White sarong, gold jewellery, slow ritual washing in the river, then the underwater scream. <em>One of the film's most quietly transcendent HMUA moments.</em> Wet skin, water on hair, face disappearing under the surface, eyes closed, mouth open underwater. Coordinate with water safety. Test the gold jewellery and the white sarong together under water with Bradford.</li>
+<li><strong>The end fire sequence (Scenes 99–103).</strong> Held in its own bordered Section 14 below.</li>
+</ul>
+</div>
+</div>
+
+<!-- SECTION 13 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">13</span>
+<h2 class="section-title">Systems of Attention / <em>The Disciplines That Cross All the Bodies</em></h2>
+<span class="section-sub">Eyes, hands, mouth, wetness, light, the unmade face, smell, touch</span>
+</div>
+<div class="section-body">
+<p>Beyond the major moments, I want you thinking at the level of <strong>systems</strong>. These are the disciplines that cross every character and every scene, and the things that, in my experience, separate good HMUA work from full body-world authorship. Each is a working axis you can build and own.</p>
+
+<div class="system-block">
+<span class="system-label">Eyes / Their Own System</span>
+<p>Not face. <strong>Eyes.</strong> Who looks directly. Who averts. Who is watched. Who sees too much. Who is no longer able to be seen correctly. <em>Moisture around the eyes, redness, sleeplessness, dilation, shadow, the dry-eyed stare, the swollen post-cry eye, the eye that has been crying but refuses to show it.</em> Antoinette in the carriage in Scene 89, eyes that have already started to leave. Rochester in the dressing room in Scene 75, eyes that no longer admit what they have seen. Christophine in Scene 24, "I see enough already child", her eyes are an instrument of judgement and care at once. Annette in the flashback in Scene 59, eyes "tightly closed, a fierce grip on the railings." <strong>Each principal has a different eye-world.</strong> Build a private map of each one's eye-state across the film.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">Hands / The Quiet Design Category</span>
+<p>This may be the largest missed opportunity in many films and the one I most want us to get right. <strong>This film is full of hands.</strong> Hands hold law books (Rochester, the magistrate). <strong>Hands make deals</strong> (Old Mr Rochester and Richard Mason in the dowry transaction at the start of the film, the handshake that closes Antoinette's life into a contract before she has met the man who has bought her). <strong>Hands greet</strong> (Rochester at the welcome line at Thornfield in Scene 90, the staff offering their hands, the social ritual of the English household). Hands trace circles on a child's palm (Christophine on Young Antoinette, Scene 45). Hands pick at nails (Rochester's thumb, the lateral nail fold). Hands wash linen (Christophine and the women, Scene 39). Hands pound mortar (Christophine, Scene 26). Hands grip knives (Antoinette, Scene 93 sliding the knife off the table). Hands bind wrists (Antoinette in the attic, Scene 99). Hands cover mouths (Rochester, Antoinette, Hilda with the kerchief). Hands pull fabric (Rochester pulling the sheet over Antoinette's face). Hands burn rope (Antoinette over the candle). Hands scrub excrement (Grace and Leah, Scene 96). Hands carry fire (Antoinette on the staircase, Scene 102). <em>Hands are where knowledge, contract, and violence keep showing up.</em></p>
+<p>Hands should be a major design category in their own right. <strong>Nails, cuticles, dirt, blood, dryness, softness, pressure marks, tremors, picking, redness, ash, water, tincture, rope burns.</strong> Each principal's hands across the film. Each working person's hands in the household scenes. <em>Hands carry the most intimate evidence the body keeps.</em></p>
+</div>
+
+<div class="system-block">
+<span class="system-label">Mouth / Throat / Breath / Voice</span>
+<p>The film's sonic register lives partly in HMUA. <strong>The mouth is not just dialogue.</strong> It is appetite, refusal, possession, song, spell, scream, silence, breath, and freedom. Track <em>Daniel's chewing stick</em> in mouth and between fingers (Scene 37). <em>Rochester's dry throat</em> when his fever rises and his control breaks. <em>Antoinette's lips</em> in heat (full, slightly parted, alive) versus in cold (cracked, blue, paled). <em>Christophine's mouth</em> as authority, song, spell, warning, blessing, kiss. <em>Force-feeding</em> in the attic in Scene 94, the spoon between Antoinette's lips, the brown stew spat back across Grace's white apron. <em>The underwater scream</em> in Scene 76, the mouth open underwater, the sound released into water like whale-song. <em>Rochester calling "Bertha"</em> in Scene 103 from inside the fire, the mouth that has renamed her. <em>Antoinette's final laugh</em> as she flies home. <strong>Lips, teeth, tongue, the corner of the mouth, the line of the jaw, the throat above the collarbone.</strong> The mouth is the threshold between the body and the world.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">A Taxonomy of Wetness</span>
+<p>Not all wet is the same. Build the taxonomy and hold it. <em>Sweat. Sea water. River water. Rain. Tears. Fever sweat. Sexual sweat. Fear sweat. Ritual water. Cold damp. Attic damp. Fire sweat.</em> <strong>Each one looks different on skin and reads different on Bradford's lens.</strong> Sweat is finer than rain. Sea water leaves salt; river water doesn't. Tears track from the corner of the eye down the cheek and dry in a particular salty residue. Fever sweat is colder than labour sweat. Sexual sweat is warmer and slower. Fear sweat is fast and beaded. Ritual water is intentional, applied, and slow. Cold damp lives on the surface; attic damp lives in the hair. Fire sweat carries soot.</p>
+<p><strong>Rochester's sweat is betrayal. Antoinette's wetness can be environmental attunement. Christophine's water can be ritual. England's damp can be suppression.</strong> The same wet does not mean the same thing on different bodies in different scenes. Build the taxonomy practically, what oil, what spray, what water, what residue produces each.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">Skin Under Different Light Worlds</span>
+<p>This is the practical axis of the Bradford litmus test we put up front. <strong>Skin will not read the same under Caribbean sun, candlelight, moonlight, thermal logic, red firelight, cold English daylight, attic shadow, and archive/intercut abstraction.</strong> Plan to test each principal under each light world that the film puts them in. The colour you mix in the trailer is not the colour Bradford finds in the grade. <em>Make-up tested in isolation will mislead us. Make-up tested under the film's actual light grammars will tell us the truth.</em> Build a calendar of camera tests that covers every major light world before we begin principal photography, and again as we approach each block.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">The Unmade Face</span>
+<p>A canonical idea worth holding consciously. <em>Sometimes the strongest make-up is the face that has lost the ability to perform itself.</em> Annette after Coulibri. Antoinette in the attic. Rochester after Daniel. Grace inside duty. <strong>The question becomes: when does a character still have a social face, and when has that face fallen away?</strong> The unmade face is not "no make-up." It is the absence of the social composition the character has been holding. The face that has stopped trying. HMUA does the unmaking deliberately, it is its own state, with its own rules, and it is at least as charged as any heightened beat.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">Smell as Invisible HMUA</span>
+<p>This is not literally make-up, but it shapes how actors embody the world. <strong>Sweat, smoke, rum, river, mildew, flowers, oil, hair, metal, blood, soap, starch, damp wool.</strong> The audience may not smell it. The actors can. <em>Smell affects performance, intimacy, and repulsion.</em> Christophine's kitchen has a smell. Daniel's house has a smell. The attic has a smell. The forest where Rochester digs has a smell. We can build the olfactory atmosphere of the rooms we shoot in, lightly, in coordination with the actors and the production team. <strong>Think with smell.</strong> It is one of the quiet design tools and it changes how a body holds itself.</p>
+</div>
+
+<div class="system-block">
+<span class="system-label">Touch as Make-up / The Body Registers Contact</span>
+<p>Every place the body has been touched, held, grabbed, brushed, restrained, washed, healed, fed, slapped, bitten, or covered. <strong>The body registers contact.</strong> A touch map of the film, scene by scene. Amelie pulling Antoinette's hair (Scene 28). Christophine tracing circles on Young Antoinette's hand (Scene 45). Rochester covering Antoinette's mouth, then Antoinette covering Rochester's mouth in the same series of scenes. Rochester pulling Antoinette's sleeves up. Rope on her wrists (Scene 99). Grace force-feeding (Scene 94). Christophine lifting Antoinette's skirt (Scene 79). Tia's stone wound (Scene 58). Rochester's dirt-mask (Scene 78). Daniel's chewing stick. Baptiste's keloid scars (Scene 84). Rochester's slap of Baptiste (Scene 89). <em>HMUA should keep a touch map of the film.</em> Some touches leave visible marks; some leave only a slight redness or warmth that lasts the scene; some leave a residue invisible to the camera but real to the actor's body. <strong>The body remembers being touched even when the camera doesn't see it.</strong></p>
+</div>
+</div>
+</div>
+
+<!-- SECTION 14 -->
+<div class="section section-fire">
+<div class="section-header">
+<span class="section-number">14</span>
+<h2 class="section-title">The Attic and the Fire / <em>Drained, Stripped, Cloaked in Red, Released</em></h2>
+<span class="section-sub">The final movement on the body</span>
+</div>
+<div class="section-body">
+<p>The end of the film is, in HMUA terms, a journey of <strong>progressive draining followed by chromatic release</strong>. Antoinette is gradually emptied of warmth, glow, and Caribbean colour by the cold of the English attic. Then, as the fire takes the house, the chromatic light around her returns colour to her skin, but the colour now comes from outside, from the burning house and the red light cloaking her, not from the body's internal harmony. The body is being filled with light it has chosen to walk into.</p>
+
+<p style="margin-top:18px;"><strong>The attic body, Scenes 91–99.</strong></p>
+<ul class="threads">
+<li><strong>Scene 91.</strong> Wrestled into the attic by Grace and Leah. Bruising or pressure marks visible on thigh, arm, neck where she has been grabbed. Hair partly escaping its travelling cap. Eyes wide.</li>
+<li><strong>Scene 93.</strong> White with cold, lips blue. Caribbean body in English cold. <strong>The pallor here is not styled, it is drained.</strong> Hair flat. Skin paper-dry. The shawl placed and shaken off. The fact of her refusal is held in the face.</li>
+<li><strong>Scene 94.</strong> <strong>Two plaits, one longer than the other.</strong> The Annette echo from the confinement flashback in Scene 59. Hair as inheritance, hair as the closing of a circle. The plaits are the visible sign that the daughter is now in the same room as the mother was.</li>
+<li><strong>Scenes 94–95.</strong> Force-feeding. Lips forced open by the spoon. Stew splattered on Grace's white apron. Antoinette painfully thin, lips dry, teeth dry, eyes hollow. <em>Hard, unromantic, institutional.</em></li>
+<li><strong>Scene 96.</strong> Excrement scrubbing. <strong>Antoinette holds dignity</strong> while the maids gag. Avoid making this a "madwoman filth" image. The contrast is the room's degradation against her body's quiet refusal. <em>Her face is the body of the resistance.</em></li>
+<li><strong>Scene 97.</strong> Richard Mason visit. Painfully thin and fragile. Then she finds inner strength and attacks Richard. Blood. Frailty to force in a single scene. The blood lives across her face, his face, and the table.</li>
+<li><strong>Scene 99.</strong> White nightgown, hands bound with rope. Walks the perimeter. <strong>Burns through the rope over the candle.</strong> Track the rope-marks at the wrists afterward, these are residue (Section 04). The wrists carry the rope's brief biography. The room recedes into shadow around her. <em>The drained body about to be filled with light.</em></li>
+</ul>
+
+<p style="margin-top:18px;"><strong>The fire body, Scenes 100–103.</strong></p>
+<ul class="threads">
+<li><strong>Scene 100–101.</strong> Walks through the corridor of paintings. Lights the edge of the red tablecloth. <em>The first warm flush returns to her skin.</em> Not glow, but heat. The body that has been cold for the entire English section starts to take colour again from outside.</li>
+<li><strong>Scene 102.</strong> Grand staircase, lit in crimson. Lady Liberty, holding a flaming torch. <strong>Cloaked in red light.</strong> Face flickers between red and orange. Hair illuminated from below. Lips finally re-coloured. <em>Her skin is taking the colour of the fire.</em> The chromatic recovery is total. Test under crimson light early with Bradford so we know what white we are starting with and what red the skin takes.</li>
+<li><strong>Scene 103.</strong> Battlements. <strong>Hair flying out behind her in the wind.</strong> Lady Liberty. The body becoming sky. Face illuminated by fire below and the deep orange moon above. <em>This is the final HMUA hero image, not madness, not death, but release.</em> The hair flying is the matriline closing, Annette's hair flowing out behind her on the veranda becomes Antoinette's hair flying behind her on the battlements. <strong>The flight is mother and daughter at once.</strong></li>
+<li><strong>Inside the fire.</strong> Rochester coughing, calling Bertha. Thermal saturation: Rochester becomes white silhouette against darker background, then the background turns to white and swallows him. <em>HMUA's last reading of him is sweat, soot, and a face being unmade by heat.</em></li>
+<li><strong>The flight home.</strong> After the jump, Antoinette flies home through the deep orange moon, the heart of the forest, Coulibri garden, the natural pool, the flamboyant tree. <strong>We are in her POV here, not looking at her.</strong> The audience does not see her body in this final composite; the audience sees what she sees as she returns. <em>HMUA's last reading of her is therefore the battlements moment, before the jump.</em> The make-up of release lives there: lips finally still, eyes finally still, the body that has been carrying everything for two hours arrives somewhere finally at rest. After that, the body is gone from the frame; what remains is the world she is flying back through.</li>
+</ul>
+
+<p style="margin-top:18px;"><strong>Practical considerations.</strong> Fire-safe versions of any HMUA elements (oils, residues, paints, hair products) used in the staircase and battlements sequences. Coordinate closely with SFX, with stunt, and with the safety meeting on the candle work in Scene 99 (real flame, real rope-burn). Plan a dedicated camera test under crimson light early in prep, the chromatic transformation is one of the riskiest HMUA sequences and we should know exactly how the skin behaves before we lock it.</p>
+
+<div class="script-note"><p><strong>From the script:</strong> Scene 93, "ANTOINETTE is white with cold, lips blue." Scene 94, "Her hair has been tied in 2 plaits, one longer than the other." Scene 97, "She is now painfully thin and fragile." Scene 99, "ANTOINETTE, in a white nightgown, walks the perimeter of the room… Her hands are now bound together with rope." She burns the rope over the candle. Scene 102, grand staircase lit in crimson, "Lady Liberty," holding one flaming torch. Scene 103, battlements, "a line of flames stand to attention behind her," "her hair flying out behind her in the wind." She jumps. She flies home through the deep orange moon and the flamboyant tree.</p></div>
+</div>
+</div>
+
+<!-- SECTION 15 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">15</span>
+<h2 class="section-title">Practical Continuity / <em>The Complexion Arc, the Body Map, Multiplication, Aging</em></h2>
+<span class="section-sub">The working frameworks to build and own</span>
+</div>
+<div class="section-body">
+<p>The body in this film is doing such specific work, and the same body moves through so many conditions, that a set of working continuity frameworks beyond standard production HMUA continuity will be useful. Build into prep schedule and budget early.</p>
+
+<p style="margin-top:18px;"><strong>1. The complexion arc, schedule fact and tracking framework.</strong> We are shooting the <strong>England ending first</strong> and the <strong>Caribbean section after, in Barbados</strong>. The actress playing Antoinette will be in England with us at the start, paler and cooler in body, and in Barbados later, warmer and more sun-touched. <em>The natural shift maps onto the story arc almost exactly.</em> Our task is to track and chart it. Build a continuity map of her complexion across the script (every scene, with HMUA notes for what we will add or subtract from her natural state to land each scene at the right point on the arc). <strong>Equally we should be doing this for every character whose journey crosses the geography.</strong> Rochester, Christophine, Baptiste, Amelie, Hilda, Daniel, all of them have a slightly different map, and each map matters.</p>
+
+<p style="margin-top:18px;"><strong>2. The bodily continuity map.</strong> Each principal needs a private map (you and your team only) of <em>what happened to the skin yesterday, what has healed, what mark remains, what is hidden, what is worsening, what is being covered, what the character is pretending not to feel</em>. Especially important for Rochester, Antoinette, Annette, and Daniel. The map is your private intelligence, it will keep continuity coherent across out-of-sequence shoots and will keep performance grounded for the actors. <strong>Update daily.</strong></p>
+
+<p style="margin-top:18px;"><strong>3. Multiplication and breakdown states.</strong> Each principal will need versions of themselves in distinct material states. Some will need pre-built layers; some will need application-on-the-day; some will need both. <em>Plan ahead for:</em></p>
+<ul class="threads">
+<li><strong>Clean.</strong> Hero version, just-finished, the body as it is "supposed" to be.</li>
+<li><strong>Wet.</strong> Tested for water. The pool scenes, the river, the rain, the underwater work.</li>
+<li><strong>Sweat-marked.</strong> Pre-applied and refresh-able. Rochester's chronic sweat. Antoinette's environmental wetness. Daniel's heat-trapped sweat.</li>
+<li><strong>Mud-marked.</strong> Hands, hems-of-hair, faces. The mountain village dress, the Tia-stained wear, the forest dirt.</li>
+<li><strong>Dirt-mask state.</strong> The full Scene 78 build, planned with dedicated time and rehearsal.</li>
+<li><strong>Smoke / soot.</strong> The Coulibri fire (childhood) and the Thornfield fire (end). Different smokes. Different residues.</li>
+<li><strong>Painted state.</strong> The Atlantians. Multiple shades. Multiple application sessions. Water-safe.</li>
+<li><strong>Drained / cold.</strong> The attic body. Built across multiple stages of progression as Antoinette deteriorates.</li>
+<li><strong>Final fire / spectral.</strong> Crimson-lit, heat-flushed, hair flying. Tested under Bradford's crimson light.</li>
+<li><strong>Continuity reset.</strong> Multiple identical baseline states for scenes shot over multiple days, where the wear has to remain consistent.</li>
+</ul>
+
+<p style="margin-top:18px;"><strong>4. Aging and prosthetics where needed.</strong></p>
+<ul class="threads">
+<li><strong>Younger Christophine</strong> in the childhood flashbacks. Subtle aging-down using a light combination of HMUA technique <em>plus</em> lighting / hair / wardrobe, calibrated together with Bradford. Not heavy prosthetic work. Read alongside Section 08.</li>
+<li><strong>Pierre's frailty.</strong> Read alongside Section 09. Tender pallor, fine hair, the lavender shadow under the eye. Beauty in the smallness, not the sickness.</li>
+<li><strong>Baptiste's keloid scars.</strong> Read alongside Section 09. Careful prosthetic / stipple work. Coordinate with the actor and with the historical sensitivity of the moment.</li>
+<li><strong>Annette's burnt hair and hands</strong> (Coulibri fire aftermath). Practical scorch / treated hair, careful hand work. The burn does not have to be horror-styled to land.</li>
+<li><strong>Rochester's grey at the temples</strong> in the final England section. Small, suggestive, not aging-styled.</li>
+<li><strong>Antoinette's deterioration in the attic.</strong> Multi-stage. Built across the attic sequence as a progression.</li>
+<li><strong>Atlantian body paint.</strong> Multiple custom shades for different performers' undertones. Water-safe formulation. Long application calls.</li>
+</ul>
+
+<p style="margin-top:18px;"><strong>5. Care ethics in the room.</strong> Distress marks, scars, burns, restraint marks, body paint, intimate work, all approached with consent, dignity, and clear protocols. <em>The body is not there to be punished by the image.</em> Coordinate with intimacy support, with the actors' own preferences, with the production team. Build a working culture in your trailer where the actors know they have authority over their own bodies and where the marks we make are made together with them.</p>
+</div>
+</div>
+
+<!-- SECTION 16 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">16</span>
+<h2 class="section-title">Crossover / <em>HMUA Inside the Total Mise en Scène</em></h2>
+<span class="section-sub">The body in active conversation with every other department</span>
+</div>
+<div class="section-body">
+<p>I work in <strong>mise en scène</strong>, which means every element in the frame is composing the argument together. <strong>HMUA cannot sit separately.</strong> Your choices land directly in everyone else's work. Their choices land directly in yours. The body is one voice in a closely-listening ensemble.</p>
+
+<p><strong>HMUA and Costume (Ola).</strong> The closest of all departments to yours. <em>Ola and you are essentially co-designing the body.</em> Your choices affect her cloth (the sweat that darkens linen, the salt residue that leaves a faint outline, the dirt under the nails that ends up on a cuff, the mark a corset leaves on a torso). Her choices affect your skin (the redness at the back of the neck where the kerchief sits, the slight stretching of Christophine's lobes by her earrings, the marks the rope leaves on Antoinette's wrists, the bruising where Leah and Grace grabbed her in Scene 91, the dirt-mask coordinated with the soaked shirt). Hero objects flagged across the two documents and to be tracked together: <strong>the neckerchief, the corset, Christophine's earrings and headwrap, Daniel's chewing stick, the rope at Antoinette's wrists, the bell, the cutlass, the white nightgown, the white powder.</strong> Plan together, scene by scene, what the body shows the camera. The boundaries between us are working boundaries, not silos. We are detailing across, in the spirit of the departments being in conversation.</p>
+
+<p><strong>HMUA and Production Design (Nora).</strong> The interiors, surfaces, walls, beds, mortars, candles, mud, ash, thresholds, and rooms Nora is building are the environments your bodies pass through, and the residue of those environments stays on the bodies. Daniel's sealed heat box leaves heat on his skin. The attic's cold leaves blue on Antoinette's lips. The kitchen's coffee-and-mortar air leaves Christophine's particular working luminosity. <em>Cross-flag with Nora particularly on:</em> the Miller's Daughter painting (work with the painting brief); Christophine's kitchen and sleeping room (the order around her body matches the order on her body, read her Provocation Six); the attic candle and candle holder (lighting the rope-burn in Scene 99); Daniel's red tablecloth and the chromatic relationship to his singlet, his ginger hair, and his pinking skin; the patriline portraits at Thornfield (the painted Old Mr Rochester face and the living one in the same chromatic family).</p>
+
+<p><strong>HMUA and Cinematography (Bradford).</strong> <em>Bradford is the litmus test.</em> See the note up front. He reads <strong>texture, weight, light absorption, colour temperature</strong> through skin and hair before he reads them through anything else. The white you choose for Antoinette's pallor will look different under his light than it does in your trailer. The blue-black on the Atlantians is not the blue-black you mix; it is the blue-black he finds in the grade. Plan to test on camera together, early. Build the calendar of camera tests as a non-negotiable part of prep. Same for the reds, the browns, the gold of Christophine's earrings, the dirt-mask, the spectral white of the fire sequence. <strong>Test HMUA on camera before locking it.</strong> The decisions we lock should be the ones that have been seen through Bradford's lens, not just on a stand.</p>
+
+<p><strong>HMUA and Movement.</strong> The actors. <em>How a body moves changes how its surface reads.</em> Rochester's gait under the corset is not Rochester's gait at the pool. Antoinette's posture in Scene 4 is not her posture in the attic. Christophine's stride from the kitchen is not her stride at the river ritual. <strong>HMUA and movement are continuous.</strong> Plan with the actors and with movement direction so the body inside the surface inhabits both fully. Coordinate especially around scenes where the body work is heavy (the dirt-mask, the corseted MASTER OF NONE breakdown, the painted Atlantians, the attic deterioration). The body the actor offers is the body we work with. We do not impose make-up on a body that has not been included in the design.</p>
+
+<p><strong>HMUA and the wider crew.</strong> SFX (water, fire, the candle work in Scene 99, the practical dirt in Scene 78, the burning rope, the smoke). VFX (where useful, the cut that disappears in Scene 45 may benefit from VFX support; the thermal saturation of Rochester at Scene 103 lives partly in post). Stunt and water safety (the underwater Atlantians, the river ritual, the fire sequence, the battlements). Continuity team (the bodily map shared and held). Intimacy support (the bedroom scenes, the river ritual, the body paint, the self-harm marks). <strong>HMUA sits inside a closely-listening crew. Use the room.</strong></p>
+
+<p style="margin-top:18px;">The aim is that <strong>nothing in the frame is doing its work alone</strong>. The body is part of the total mise en scène. We are listening to each other.</p>
+<p style="margin-top:14px;">A note on what harmony actually means here. <strong>HMUA being in harmony with the other departments does not mean visual agreement at every turn.</strong> Sometimes the body and the cloth, the body and the room, the body and the light are arguing with each other on purpose, and that argument is the scene. Christophine's luminosity beside Rochester's flush. Antoinette's white nightgown against the dirtied institutional attic. The Atlantians' painted skin against the absence of cloth. <em>Harmony here means coordinated intention, including intentional discordance.</em> When the body needs to fight the cloth, fight the light, fight the room, the fight should be designed across departments, not stumbled into. Tell each other when you are setting up a discord. Build it together.</p>
+</div>
+</div>
+
+<!-- SECTION 17 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">17</span>
+<h2 class="section-title">Colour and the Red Through-Line / <em>A Brief Note on the Body</em></h2>
+<span class="section-sub">Cross-references Nora's full colour theory section and Ola's chromatic spine</span>
+</div>
+<div class="section-body">
+<p>The film holds a <strong>chromatic spine</strong>. Nora's BEDROCK document goes deep on the colour theory; Ola's holds the cloth-side argument. This is a brief HMUA-side note that picks up the same threads on the body.</p>
+<ul class="threads">
+<li><strong>White</strong> as racial taxonomy on skin. The always-white principle on Antoinette is the foil; her skin is the argument made against and inside the cloth's whiteness. See Provocation One. Her face under five whites across the film is five chromatic positions on the same body.</li>
+<li><strong>Brown</strong> as the colour of the land's mark on the body. Mud at the hem and mud at the foot. Mud under the nail. The brown stew on Antoinette's lips and Grace's apron in Scene 94. The brown blood dried too long after Scene 58. The dirt-mask in Scene 78. <em>Brown is shame in one reading and sacrament in another.</em> Hold the doubleness on the body.</li>
+<li><strong>Black</strong> as <strong>the colour of what cannot be possessed by colonial sight</strong>. Christophine's composure. The Atlantian painted bodies. The black silhouettes at the opening Coulibri fire. The screen-blackness when the Arawakan ancestor speaks. <em>On the body: the deepest skin under the deepest light, holding its own.</em></li>
+<li><strong>Gold</strong> as contested ground. Christophine's earrings (Akan inheritance) reading on her lobes against the Thornfield candelabras and cutlery (colonial accumulation) reading on the table. Same metal, two registers. <em>On the body, this lives at her ears specifically, the lobes pulled down by a metal whose history travels.</em></li>
+<li><strong>Red</strong> as the chromatic spine. Antoinette's blood under Tia's stone (Scene 58), Antoinette's blood from the leaf (Scene 44), the cuts on her thigh (Scene 79), bite-marks and bloodied palms in Scene 70, Daniel's tablecloth red against his singlet (Scene 37), the deep-red screen-fillers (Scenes 60, 70, 77), the Thornfield tablecloth (Scene 101), the crimson staircase (Scene 102), Antoinette cloaked in red light (Scenes 101–103), the wall of fire on the battlements, the deep orange moon, the flamboyant tree at the end. <strong>Red travels from foreshadowing to freedom.</strong> The body's role in the red spine: <em>take colour cleanly when the world turns red around it.</em> The skin and hair must hold the red without being undone by it. The white Antoinette has worn all her life is the surface that makes the red travel most powerfully across her body in the final movement.</li>
+</ul>
+</div>
+</div>
+
+<!-- SECTION 18 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">18</span>
+<h2 class="section-title">The Experimental Invitation / <em>Where Conventional Period HMUA Falls Away</em></h2>
+<span class="section-sub">Bring proposals. Things we have not tried.</span>
+</div>
+<div class="section-body">
+<p>This film is an opportunity to try things we do not normally get to try. I want our process to be experimental in the proper sense. <strong>Things that might fail. Things that might open. Things we do not know yet how to do.</strong></p>
+<p>I am thinking specifically of the moments in the script that <strong>exceed conventional period HMUA altogether</strong>:</p>
+<ul class="threads">
+<li><strong>The Atlantians.</strong> Section 11 holds the dedicated treatment. Bring tests, custom shades for each performer's undertone, second-eyelid trial passes, and underwater behaviour studies. The biggest single experimental site of the film for HMUA.</li>
+<li><strong>The ayahuasca-register forest trip (Scene 31).</strong> Section 07 covers the body register. The HMUA experiment here is the third register of wetness, not sweat as betrayal, not sweat as environment, but sweat in altered consciousness. Plan it with Bradford, who will be working chromatic and lens choices into the same trip. Eyes dilated, lips slightly parted, a flush moving up the neck, the slight glaze on the skin. The girl in the white dress who screams and runs is itself an HMUA moment, the dream-state child must look both real and not. Coordinate with the painted-bodies sensibility of the Atlantians as a related register.</li>
+<li><strong>The dirt-mask (Scene 78).</strong> Section 07 and Section 12. The body's most explicit chromatic transformation. <em>The mask is a process, not an effect.</em> Build the sequence of states.</li>
+<li><strong>The thermal sequences.</strong> Rochester as a white silhouette against a darker background in Scene 103. Skin and hair under thermal logic do not behave as they do under naturalistic light. Plan with Bradford and post, the practical body is one part, the post-grade is the other. <em>HMUA's job is to give the practical body what the post-grade can amplify.</em></li>
+<li><strong>The black-and-white intercuts and archive sequences.</strong> Scenes 99 to 102, the FLASH OF ARCHIVE FOOTAGE moments where archival material itself enters the film. Antoinette's body reads against the archive in these moments. Plan how the white nightgown and the body inside it sit in dialogue with actual archival imagery.</li>
+<li><strong>The composite landscape at the end.</strong> Antoinette flying home through the heart of the forest, Coulibri garden, the natural pool, the flamboyant tree, all in one place at one time. <strong>Important to hold: we are in her POV here, not looking at her.</strong> The audience does not see her body in this final composite; the audience sees what she sees as she returns. <em>HMUA's role is therefore not on her face in this moment; it is everything that has come before, every mark, every shade, every flush, every pallor, that makes her absence from the frame felt as the body that has earned its release.</em> Plan as a final hero composite, treated with care.</li>
+<li><strong>The cut that disappears (Scene 45).</strong> The most unusual single HMUA-and-VFX-and-spiritual-knowledge crossover in the film. Christophine rubs tincture into the cut and the cut disappears. The practical version may be the truest one. <em>Bring a method.</em></li>
+</ul>
+<p style="margin-top:24px;">Bring proposals for these moments. Bring methods I have not thought of. Bring the strange. Use materials that do not normally meet on a film set. Test things in prep that we are not sure about yet. The spirit of this work is play in the most serious sense: the willingness to make something we cannot yet picture in order to find out what it is.</p>
+</div>
+</div>
+
+<!-- SECTION 19 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">19</span>
+<h2 class="section-title">Reading and Reference Pool / <em>Starting Threads</em></h2>
+<span class="section-sub">Push past these. Bring back what they spark.</span>
+</div>
+<div class="section-body">
+<p>A starting pool of reading and reference for you to extend. Push past it. Bring back what they spark. Bring back what they don't. Genuinely obscure references are welcome.</p>
+<ul class="threads">
+<li><strong>Frantz Fanon, <em>Black Skin, White Masks</em>.</strong> Held directly because of Scene 78 ("White skin, Black mask") and the wider racial-perceptual axis of the film. Read for the relationship between skin, perception, and colonial interiority. The dirt-mask is the title walking onto the screen as image.</li>
+<li><strong>Tina Campt, <em>Listening to Images</em>.</strong> The methodology of reading vernacular and archival photographs against the grain of their production. Directly relevant to how we approach the photographic record of Caribbean dress, hair, and self-presentation in the period. Tina is a friend and may be available for a conversation as we get into prep.</li>
+<li><strong>Patricia Mohammed</strong> on Caribbean dress, gender, and the cultural politics of self-presentation. <strong>Honor Ford-Smith</strong> on Caribbean women's cultural production. <strong>Carolyn Cooper</strong> on Jamaican women's self-fashioning. <strong>Steeve O. Buckridge, <em>The Language of Dress: Resistance and Accommodation in Jamaica, 1760–1890</em>.</strong></li>
+<li><strong>Caribbean and African diasporic hair traditions.</strong> The deep history of braiding as carrier of geography, kinship, and freedom signaling. <em>Lyle Ashton Harris</em>, <em>Sonya Clark</em>, <em>Lorraine O'Grady</em> on hair as material, political, and ancestral surface. Carolyn White's work on Caribbean hairdressing histories. Practical research on the named braiding traditions that connect Hilda's and Amelie's hair to West African lineage and to continuous diasporic practice.</li>
+<li><strong>The named Martinican headwrap traditions.</strong> Writing on the <em>tête calendée</em>, the <em>foulard</em>, the <em>douillette</em>, the layered Martinican ties where each fold carries specific meaning. Ina Césaire's writing. Lafcadio Hearn's <em>Two Years in the French West Indies</em> (with caution, as a colonial source) for textile and presentation detail.</li>
+<li><strong>Indigenous Caribbean body-painting traditions.</strong> Taíno, Carib, and Arawak, particularly the use of <em>roucou</em> / annatto (red, from <em>Bixa orellana</em>) and <em>jagua</em> / genipa (blue-black, from <em>Genipa americana</em>). Anthropological and archaeological writing on the body as ceremonial surface across pre-Columbian Caribbean cultures. <em>The deepest geographic root for the Atlantians.</em></li>
+<li><strong>Ancient Egyptian funerary imagery and kohl.</strong> Painted blue-black skin of certain deities (Osiris). Kohl traditions. <em>Painted body as deity, ancestor, resurrected form.</em></li>
+<li><strong>Yoruba indigo, Adire, Gelede and Egungun masquerade.</strong> West African painted-body traditions. The painted body as a meeting point with ancestors and the unborn.</li>
+<li><strong>Maya body painting and Maya blue (Bonampak murals).</strong> Indigenous Americas in deep ceremonial blue.</li>
+<li><strong>Nuba and Surma body painting (Sudan / Ethiopia).</strong> Full-body and face painting as continuous practice, not folkloric artefact.</li>
+<li><strong>Wodaabe Gerewol painted faces and Himba <em>Otjize</em> ochre.</strong> Pastoralist West and Central African body-painting traditions where the painted body is the body.</li>
+<li><strong>Drexciya.</strong> The Detroit techno project and Afrofuturist mythology of Black Atlanteans. Liner notes, music, mythos, maps. <em>Spiritual source for the Atlantians as a concept.</em></li>
+<li><strong>Sun Ra.</strong> The long Afrofuturist project. Painted face, cosmic costume, the ancestor-arriving-from-elsewhere. Held as register, not copy.</li>
+<li><strong>Ellen Gallagher.</strong> Drexciya-related painted-body work. <em>One tributary among several</em>, held lightly.</li>
+<li><strong>Missy Elliott music videos.</strong> Major contemporary reference for Afro-surreal body imagery. <em>"She's a Bitch," "Get Ur Freak On," "Pass That Dutch," "Sock It 2 Me," "Lose Control," "We Run This,"</em> and across her catalogue. The painted, prosthetic, surreal Black body in popular image. Watch them all.</li>
+<li><strong>Ana Mendieta.</strong> The body and the earth. Body marks on the land and the land marked on the body. Useful for the residue and ground-of-the-body axis we are working in (mud, earth, the dirt-mask, the body painted with what the world has on hand).</li>
+<li><strong>Wangechi Mutu.</strong> Painted, collaged, surreal Black body work. The body as composite, as ancestor, as not-yet-fully-resolved figure.</li>
+<li><strong>Carrie Mae Weems and Lorna Simpson.</strong> Photography that reads cloth, body, hair, and history. The dignity and surveillance of Black women across image traditions.</li>
+<li><strong>Sonia Boyce and Lubaina Himid.</strong> Black British artists working on cloth, dress, hair, and the colonial archive.</li>
+<li><strong>Roy DeCarava.</strong> Deep light and the absorption of light by Black skin. <em>The single most important reference for Christophine's luminosity register.</em></li>
+<li><strong>Seydou Keïta, Malick Sidibé, Sanlé Sory.</strong> West African studio portraiture and the dignity of self-presentation that runs through it. How cloth, hair, and skin carry self-regard.</li>
+<li><strong>Zanele Muholi.</strong> Contemporary South African portraiture of Black bodies in profound presence. Cousin to Roy DeCarava in luminous intensity.</li>
+<li><strong>Period 1830s/40s grooming and cosmetic vocabulary.</strong> English and Caribbean variants. Read for what is and is not period-honest, then push achronologically where the truth requires it.</li>
+<li><strong>Films.</strong> Claire Denis's <em>Chocolat</em> for the somatic argument of European bodies in tropical climates. <em>Beau Travail</em> for body as composition under heat. Sarah Maldoror's <em>Sambizanga</em>. Med Hondo's <em>West Indies</em>. Euzhan Palcy's <em>Rue Cases-Nègres / Sugar Cane Alley</em> for Martinican dress and presentation across class. Maya Deren's Vodou Haiti footage for ritual body.</li>
+<li><strong>Reference for the anxiety tic.</strong> <em>Black Swan</em> (Aronofsky), the lateral nail fold, dermatophagia, anxiety surfacing through skin at the extremities. Held lightly as a register, not a citation. Borrow the sparingly precise close-up of the half-bitten cuticle and the small chronic redness, not the horror.</li>
+<li><strong>The exhibition <a href="https://www.michaelwerner.com/exhibitions/postures-jean-rhys-in-the-modern-world" target="_blank" rel="noopener">Postures: Jean Rhys in the Modern World at Michael Werner Gallery</a>.</strong> We are in contact and collaboration with the gallery. If the show or its materials are useful to you, let me know and we can connect you to them directly.</li>
+<li><strong>Hand-coloured photographs of the Caribbean from the late 19th and early 20th century.</strong> The politics of colour added to colonial archives. Useful for both palette and the way Black skin and Black hair were rendered (and mis-rendered) by the photographic conventions of the colonial period. <em>What the addition reveals about what the original suppressed.</em></li>
+</ul>
+</div>
+</div>
+
+<!-- SECTION 20 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">20</span>
+<h2 class="section-title">Companion Documents / <em>Across Departments</em></h2>
+<span class="section-sub">Read alongside</span>
+</div>
+<div class="section-body">
+<p>This BEDROCK is one of a constellation of documents I am building for our collaborators. Reading across them will help you see how HMUA's argument lives inside the wider film.</p>
+<div class="companion-grid">
+<div class="companion-row">
+<div class="who">Darol</div>
+<div class="what"><a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_visualresearchbrief/" target="_blank" rel="noopener">Visual Research Brief, for Darol Olu Kae</a>. The wider film-wide research document holding the philosophical, theoretical, and visual horizons the film is sitting inside. Read this one for the broad world. Section 03 (Colour, Race, Visibility, Residue) and Section 04 (What Remains and What Is Missing) are pulled directly from Darol's framing and pushed through HMUA. Reading his original framing alongside this will deepen your handle on both.</div>
+</div>
+<div class="companion-row">
+<div class="who">Nora</div>
+<div class="what"><a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_productiondesignbrief/" target="_blank" rel="noopener">Production Design BEDROCK, for Nora Mendis</a>. Read alongside this one. Especially Provocation Six (Christophine's Style as Spatial Argument), Section 04 (The Material World), Section 06 (Indigenous Presence / Taíno, Arawak, Carib Traces), Section 08 (England and Thornfield), the Miller's Daughter painting brief, and the colour theory section. Many of our HMUA decisions live in conversation with Nora's spaces; many of her spaces touch the body in turn.</div>
+</div>
+<div class="companion-row">
+<div class="who">Ola</div>
+<div class="what"><a href="https://gztwzwf97v-ui.github.io/wide-sargasso-sea_costumedesignbriefeng/?v=5" target="_blank" rel="noopener">Costume Design BEDROCK, for Ola Staszko</a>. Your closest sister document. Costume and HMUA are co-designing the body. Read across the entire doc; particularly Provocation One (Shades of White, and Antoinette's Always-White), Section 04 (Antoinette's costume through line), Section 05 (Rochester's costume score), Section 06 (Christophine), Section 09 (Hero Object Tracking), and Section 10 (The Attic and the Fire). Many of the cross-flagged objects between Ola's doc and yours need to be tracked together: the neckerchief, the corset, Christophine's earrings and headwrap, Daniel's chewing stick, the rope at Antoinette's wrists, the white nightgown, the white powder.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 21 -->
+<div class="section">
+<div class="section-header">
+<span class="section-number">21</span>
+<h2 class="section-title">A Note on Method / <em>HMUA as Body Made Knowledge</em></h2>
+<span class="section-sub">The disposition I'd like us to hold</span>
+</div>
+<div class="section-body">
+<p>HMUA in this film is <strong>body made knowledge</strong>. It must speak through skin, hair, breath, sweat, residue, restraint, possession, freedom, and the unseen. The marks need to do the philosophical work without ever announcing it. The audience should feel the argument before they understand it, and they should feel it through the body of the actor wearing the surface.</p>
+<p>Hold the three registers in every decision. Test every choice against material, spiritual, ancestral. Hold the four elements as the operative environment. Let skin be water and fire and air and earth's witness. Hold the dual perspective, Antoinette's world and Rochester's world, in every body's felt life. Hold the achronological grounding. Hold the somatic argument. Hold the encoding method. Hold the always-white foil for Antoinette, the luminous-not-sweaty grammar for Christophine and her cluster, the heat-betrayed grammar for Rochester.</p>
+<p>Hold the body keeping the score, what remains and what is missing on the surface. Hold the racial taxonomy thread carefully and let it weight your colour decisions. Hold the litmus test: <em>nothing is real until tested through Bradford's lens</em>. Hold the care ethics around distress marks, intimate work, and consent. Hold the disposition: <strong>naturalistic always, beauty in the subtlety, world-building not editorial</strong>.</p>
+<p>And then, beyond all of that, <strong>play</strong>. Read it, push against it, contradict it, extend it, and bring back things I have not thought of yet. Everything here is provisional. The film is going to find what it needs through the work we make together, in tests and fittings and on set, and in the conversations that radiate outward from this orientation.</p>
+</div>
+</div>
+
+<div class="divider"><span class="divider-mark">Closing</span></div>
+
+<div class="closing">
+<p>One last line to carry through it all.</p>
+<p><em>The body should always reveal what the dialogue cannot.</em> This is the centre. If a choice serves that, it belongs in the film. If it does not, ask whether it is in service of a body or in service of a look. <strong>The body is the truth here.</strong></p>
+<div class="sign">
+<p class="name">JENN NKIRU</p>
+<p class="date">Monday 18th May 2026</p>
+</div>
+</div>
+
+</div>
+</body>
+</html>
